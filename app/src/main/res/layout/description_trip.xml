@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DescriptionActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Thai Island Hopper East "
+            android:textColor="#030E69"
+            android:textSize="25sp"
+            android:fontFamily="@font/aclonica"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/iwPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/thailanda" />
+
+        <TextView
+            android:id="@+id/tvDates"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="12 Jul 2021 - 21 Jul 2021"
+            android:textColor="#030E69"
+            android:textSize="20sp"
+            android:fontFamily="@font/aclonica"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"/>
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Tour Operator: Contiki    Age:18 to 35
+            Operated in: English         Group size: 30          "
+            android:textColor="#030E69"
+            android:textSize="16sp"
+            android:fontFamily="@font/aclonica"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <ImageView
+            android:id="@+id/iwPhotoThai"
+            android:layout_width="364dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/map_thai" />
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Itinerary"
+            android:textColor="#030E69"
+            android:textSize="20sp"
+            android:fontFamily="@font/aclonica"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp" />
+        <TextView
+            android:id="@+id/tvIntinerary"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:text="  Start and end in Koh Samui!
+With the Beach tour Thai Island Hopper East (9 Days),
+you have a 9 days tour package taking you through Koh Samui,
+Thailand and 2 other destinations in Thailand. "
+            android:textColor="#030E69"
+            android:textSize="16sp"
+            android:fontFamily="@font/aclonica"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+        <ImageView
+            android:id="@+id/iwSceenThai"
+            android:layout_width="364dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/screenshot" />
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
