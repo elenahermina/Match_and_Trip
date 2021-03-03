@@ -37,19 +37,19 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="331dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="325dp"
+        android:layout_height="35dp"
         android:fontFamily="@font/aclonica"
         android:text="@string/discover_the_world_together"
         android:textColor="#030E69"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/introduction"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.136"
+        android:gravity="center"/>
 
     <SearchView
         android:id="@+id/searchView"
@@ -67,6 +67,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
