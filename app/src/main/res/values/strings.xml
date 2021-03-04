@@ -3,6 +3,15 @@
     <string name="european_dream_10_days">European Dream (10 Days)</string>
     <string name="match_and_trip">Match and Trip</string>
     <string name="discover_the_world_together">Discover the world together</string>
+    <string name="join">Join</string>
+    <string name="or">or</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="login_with_facebook">Login with Facebook</string>
+    <string name="your_password_must_be_8_20_characters">Your password must be 8-20 characters</string>
+    <string name="password">Password</string>
+    <string name="email_adress">Email Adress</string>
+    <string name="log_in">LOG IN</string>
+    <string name="first_name">First NAME</string>
 
 
 </resources>

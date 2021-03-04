@@ -5,30 +5,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login"
+    android:background="@mipmap/createuser"
     android:gravity="center"
     android:orientation="vertical"
     android:visibility="visible">
 
     <TextView
-        android:id="@+id/LOGIN"
+        android:id="@+id/NewAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="@string/log_in"
+        android:text="Create new account"
         android:textColor="#030E69"
         android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/Firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/aclonica_regular"
+        android:text="@string/first_name"
+        android:textColor="#030E69"
+        android:textSize="21sp" />
+
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2C010309"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/Lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/aclonica_regular"
+        android:text="Last Name"
+        android:textColor="#030E69"
+        android:textSize="21sp" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2C010309"
+        android:ems="10" />
 
     <TextView
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginEnd="95dp"
-
         android:layout_marginRight="50dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
@@ -37,7 +85,7 @@
         android:textSize="21sp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/TextEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -64,7 +112,7 @@
         android:textSize="21sp" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/TextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -72,9 +120,23 @@
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
-        android:ems="10"
         android:background="#2C010309"
+        android:ems="10"
         android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2C010309"
+        android:fontFamily="@font/aclonica_regular"
+        android:text="@string/your_password_must_be_8_20_characters"
+        android:textColor="#030E69" />
 
 
     <TextView
@@ -87,11 +149,11 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="@string/your_password_must_be_8_20_characters"
+        android:text="I have read the Terms and Conditions"
         android:textColor="#030E69" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -100,10 +162,11 @@
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
-        android:text="Log In" />
+        android:text="SIGN UP NOW"
+        app:backgroundTint="#030E69" />
 
     <TextView
-        android:id="@+id/or"
+        android:id="@+id/have"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -113,11 +176,11 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="or"
+        android:text="Have an account?"
         android:textColor="#030E69" />
 
     <Button
-        android:id="@+id/facebook"
+        android:id="@+id/signIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -126,45 +189,8 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="@string/login_with_facebook" />
-
-    <Button
-        android:id="@+id/google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/aclonica_regular"
-        android:text="@string/login_with_google"
-        app:iconTint="#030E69" />
-
-    <TextView
-        android:id="@+id/orCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/aclonica_regular"
-        android:text="@string/or"
-        android:textColor="#030E69" />
-
-    <Button
-        android:id="@+id/join"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/aclonica_regular"
-        android:text="@string/join" />
+        android:text="Sign In"
+        app:backgroundTint="#030E69" />
 
 
 </LinearLayout>
