@@ -89,24 +89,34 @@ With the Beach tour Thai Island Hopper East (9 Days),
 you have a 9 days tour package taking you through Koh Samui,
 Thailand and 2 other destinations in Thailand. "
             android:textColor="#030E69"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:fontFamily="@font/aclonica"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
+
         <ImageView
             android:id="@+id/iwSceenThai"
-            android:layout_width="364dp"
-            android:layout_height="120dp"
+            android:layout_width="394dp"
+            android:layout_height="280dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp"
             app:srcCompat="@mipmap/screenshot" />
 
-
+        <ImageView
+            android:layout_width="364dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@mipmap/lisa"/>
 
 
     </LinearLayout>
