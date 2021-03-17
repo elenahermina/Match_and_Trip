@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun createRecyclerView() {
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = adapter
+        binding.recyclerViewMain.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewMain.adapter = adapter
         adapter.updateData(model.list)
     }
 }

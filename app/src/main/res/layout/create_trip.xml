@@ -13,20 +13,22 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="Hello Cesk"
         android:textColor="#030E69"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/welcome2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="Welcome back Cesk, where you want to go? "
         android:textColor="#030E69"
@@ -37,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="Start a trip"
@@ -46,122 +48,202 @@
 
 
     <TextView
+        android:id="@+id/tripType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="140dp"
+       android:layout_marginRight="150dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="Trip Type"
         android:textColor="#030E69"
         android:textSize="21sp" />
 
 
-    <TableRow
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:backgroundTint="@color/white">
 
         <Button
+            android:id="@+id/road"
             app:backgroundTint="#C90F1F47"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+
             android:text="Road Trip" />
 
         <Button
+            android:id="@+id/cities"
             app:backgroundTint="#C90F1F47"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+           android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:text="Explore cities" />
 
         <Button
+            android:id="@+id/beach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+
             android:text="Beach"
             app:backgroundTint="#C90F1F47" />
 
-    </TableRow>
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="28dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="What is your current location?"
         android:textColor="#030E69"
         android:textSize="21sp" />
 
     <EditText
+        android:id="@+id/addLocation"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:background="#31175CD5"
-        android:shadowColor="#326B98" />
+        android:shadowColor="#326B98"
+        android:layout_marginEnd="50dp" />
 
     <TextView
+        android:id="@+id/destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="70dp"
+        android:layout_marginRight="60dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="Where are you going?"
         android:textColor="#030E69"
-        android:textSize="21sp" />
+        android:textSize="21sp"
+        android:layout_marginEnd="74dp" />
 
     <EditText
+        android:id="@+id/addDestination"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="90dp"
         android:background="#31175CD5"
-        android:shadowColor="#326B98" />
+        android:shadowColor="#326B98"
+        android:layout_marginEnd="50dp" />
 
-    <TableRow
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="@color/white">
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="85dp">
 
         <TextView
+            android:id="@+id/from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="100dp"
             android:fontFamily="@font/aclonica_regular"
             android:text="From"
             android:textColor="#030E69"
-            android:textSize="21sp" />
+            android:textSize="21sp"
+            android:layout_marginEnd="130dp" />
 
         <TextView
+            android:id="@+id/wto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="10dp"
             android:fontFamily="@font/aclonica_regular"
             android:text="To"
             android:textColor="#030E69"
-            android:textSize="21sp" />
-    </TableRow>
+            android:textSize="21sp"
+            android:layout_marginEnd="10dp" />
+        
+    </LinearLayout>
 
-    <TableRow
+
+    <DatePicker
+        android:id="@+id/calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp" />
+
+    <TextView
+        android:id="@+id/photoTrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="@color/white">
+        android:fontFamily="@font/aclonica_regular"
+        android:text="Ad photos to the trip"
+        android:textSize="21sp"
+        android:textColor="#030E69"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginEnd="75dp" />
 
-        <CalendarView
-            android:layout_weight="wrap_content"
-            android:layout_height="wrap_content"/>
+    <Button
 
-    </TableRow>
+        android:id="@+id/agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="agregar"
+        android:textColor="#030E69"
+        android:fontFamily="@font/aclonica_regular"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginEnd="150dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTrip"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        tools:listitem="@layout/ad_photo"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp" />
+
+    <TextView
+        android:id="@+id/contentTrip"
+        android:fontFamily="@font/aclonica_regular"
+        android:textSize="21sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#030E69"
+        android:text="Add a description to the trip"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="30dp" />
+
+    <EditText
+        android:id="@+id/information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#31175CD5"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="180dp"
+        android:layout_marginEnd="180dp" />
+
+    <Button
+        android:id="@+id/guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textColor="#030E69"
+        android:fontFamily="@font/aclonica_regular"
+        android:layout_marginTop="20dp"/>
+
+
+
+
 </LinearLayout>

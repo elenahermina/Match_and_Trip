@@ -31,6 +31,7 @@
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/thailanda" />
 
@@ -43,18 +44,17 @@
             android:textSize="20sp"
             android:fontFamily="@font/aclonica"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"/>
         <TextView
             android:id="@+id/tvDetail"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="Tour Operator: Contiki    Age:18 to 35
-            Operated in: English         Group size: 30          "
+            android:text="@string/tour_operator_contiki_age_18_to_35_operated_in_english_group_size_30"
             android:textColor="#030E69"
             android:textSize="16sp"
             android:fontFamily="@font/aclonica"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -67,6 +67,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/map_thai" />
         <TextView
@@ -78,33 +79,31 @@
             android:textSize="20sp"
             android:fontFamily="@font/aclonica"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp" />
+
         <TextView
             android:id="@+id/tvIntinerary"
             android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:text="  Start and end in Koh Samui!
-With the Beach tour Thai Island Hopper East (9 Days),
-you have a 9 days tour package taking you through Koh Samui,
-Thailand and 2 other destinations in Thailand. "
-            android:textColor="#030E69"
-            android:textSize="14sp"
-            android:fontFamily="@font/aclonica"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
+            android:layout_height="118dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/start_and_end_in_koh_samui_with_the_beach_tour_thai_island_hopper_east_9_days_you_have_a_9_days_tour_package_taking_you_through_koh_samui_thailand_and_2_other_destinations_in_thailand"
+            android:textColor="#030E69"
+            android:textSize="14sp" />
 
-        <ImageView
-            android:id="@+id/iwSceenThai"
-            android:layout_width="394dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tvDetailTrip"
+            android:layout_width="match_parent"
             android:layout_height="280dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@mipmap/screenshot" />
 
         <ImageView
@@ -115,7 +114,7 @@ Thailand and 2 other destinations in Thailand. "
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:scaleType="centerCrop"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@mipmap/lisa"/>
 
 

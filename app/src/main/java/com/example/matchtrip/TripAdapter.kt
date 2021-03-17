@@ -20,7 +20,6 @@ class TripAdapter : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
         return TripViewHolder(binding.root, binding.tvName, binding.iwPhoto )
     }
 
-
     override fun getItemCount(): Int {
         return tripList.size
     }
@@ -35,7 +34,5 @@ class TripAdapter : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
         tripList = list
         notifyDataSetChanged()
     }
-
-
 
 }

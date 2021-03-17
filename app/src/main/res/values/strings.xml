@@ -8,10 +8,32 @@
     <string name="login_with_google">Login with Google</string>
     <string name="login_with_facebook">Login with Facebook</string>
     <string name="your_password_must_be_8_20_characters">Your password must be 8-20 characters</string>
-    <string name="password">Password</string>
+    <string name="passwordd">Password</string>
     <string name="email_adress">Email Adress</string>
     <string name="log_in">LOG IN</string>
     <string name="first_name">First NAME</string>
+    <string name="profile">Profile</string>
+    <string name="nname">Name</string>
+    <string name="name">Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="aage">Age</string>
+    <string name="age">Age</string>
+    <string name="eemail">Email</string>
+    <string name="email">Email</string>
+    <string name="ppassword">Password</string>
+    <string name="password">Password</string>
+    <string name="about_me">About me</string>
+    <string name="my_trips">My trips</string>
+    <string name="edit">Edit</string>
+    <string name="last_name">Last Name</string>
+    <string name="i_have_read_the_terms_and_conditions">I have read the Terms and Conditions</string>
+    <string name="sign_up_now">SIGN UP NOW</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="llog_in">Log In</string>
+    <string name="tour_operator_contiki_age_18_to_35_operated_in_english_group_size_30">Tour Operator: Contiki Age:18 to 35 Operated in: English Group size: 30</string>
+    <string name="start_and_end_in_koh_samui_with_the_beach_tour_thai_island_hopper_east_9_days_you_have_a_9_days_tour_package_taking_you_through_koh_samui_thailand_and_2_other_destinations_in_thailand">Start and end in Koh Samui! With the Beach tour Thai Island Hopper East (9 Days), you have a 9 days tour package taking you through Koh Samui, Thailand and 2 other destinations in Thailand.</string>
 
 
 </resources>

@@ -22,7 +22,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/Firstname"
+        android:id="@+id/textViewFirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="110dp"
@@ -34,7 +34,7 @@
         android:textSize="21sp" />
 
     <EditText
-        android:id="@+id/firstName"
+        android:id="@+id/EditTextFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -46,7 +46,7 @@
         android:ems="10" />
 
     <TextView
-        android:id="@+id/Lastname"
+        android:id="@+id/textViewLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -55,12 +55,12 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="Last Name"
+        android:text="@string/last_name"
         android:textColor="#030E69"
         android:textSize="21sp" />
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/EditTextLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -72,7 +72,7 @@
         android:ems="10" />
 
     <TextView
-        android:id="@+id/Email"
+        android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="95dp"
@@ -97,7 +97,7 @@
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/password"
+        android:id="@+id/textViewPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -148,7 +148,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="I have read the Terms and Conditions"
+        android:text="@string/i_have_read_the_terms_and_conditions"
         android:textColor="#030E69" />
 
     <Button
@@ -156,12 +156,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
-        android:text="SIGN UP NOW"
+        android:text="@string/sign_up_now"
         app:backgroundTint="#030E69" />
 
     <TextView
@@ -171,11 +170,10 @@
         android:layout_marginStart="35dp"
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="35dp"
-
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="Have an account?"
+        android:text="@string/have_an_account"
         android:textColor="#030E69" />
 
     <Button
@@ -188,7 +186,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         app:backgroundTint="#030E69" />
 
 
