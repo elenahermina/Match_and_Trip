@@ -1,6 +1,7 @@
 package com.example.matchtrip
 
 import android.app.Application
+import com.example.matchtrip.Db.Db
 
 class App : Application() {
 

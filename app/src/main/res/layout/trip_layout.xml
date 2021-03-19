@@ -11,12 +11,11 @@
         android:id="@+id/iwPhoto"
         android:layout_width="350dp"
         android:layout_height="140dp"
-        android:clickable="true"
-        android:contentDescription="Todo"
-        android:scaleType="centerCrop"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:scaleType="centerCrop"
         tools:srcCompat="@mipmap/europe" />
 
 
@@ -29,7 +28,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:fontFamily="@font/aclonica"
-        android:text="European Dream (10 Days)"
         android:textColor="#030E69"
         android:textSize="18sp"
         android:textStyle="bold" />

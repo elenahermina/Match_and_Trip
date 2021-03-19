@@ -1,4 +1,4 @@
-package com.example.matchtrip
+package com.example.matchtrip.MenuFragments
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.matchtrip.databinding.ActivityMenuBinding
 
-
+/*
 class MenuActivity : AppCompatActivity() {
    lateinit var binding: ActivityMenuBinding
 
@@ -53,3 +53,4 @@ class MenuActivity : AppCompatActivity() {
     }
 
 }
+*/
