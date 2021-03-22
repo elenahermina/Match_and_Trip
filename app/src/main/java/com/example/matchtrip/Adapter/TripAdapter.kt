@@ -1,16 +1,21 @@
 package com.example.matchtrip.Adapter
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.matchtrip.ActivityDescription
 import com.example.matchtrip.Trip
 import com.example.matchtrip.databinding.TripLayoutBinding
 
 
-class TripAdapter: RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
+class TripAdapter : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
 
     private var tripList = listOf<Trip>()
+
+
 
     class TripViewHolder(val tripBinding: TripLayoutBinding) : RecyclerView.ViewHolder(tripBinding.root)
 
@@ -24,8 +29,13 @@ class TripAdapter: RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
 
         holder.tripBinding.iwPhoto.setImageResource(trip.photoId)
         holder.tripBinding.tvName.text = trip.name
+       holder.tripBinding.iwPhoto.setOnClickListener {
+           val intent = Intent(holder.tripBinding.iwPhoto.context, ActivityDescription::class.java)
+           intent.putExtra(ActivityDescription.VALOR1, trip.name)
+           intent.putExtra(ActivityDescription.VALOR2, trip.photoId)
+           holder.tripBinding.iwPhoto.context.startActivity(intent)
+       }
     }
-
     override fun getItemCount(): Int {
         return tripList.size
     }

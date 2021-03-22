@@ -19,6 +19,7 @@ abstract class Db : RoomDatabase() {
     abstract fun tripDao(): TripDao
     abstract fun dbStatusDao(): DbStatusDao
 
+
     companion object {
 
         @Volatile

@@ -2,6 +2,7 @@ package com.example.matchtrip.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.matchtrip.Db.Db
@@ -13,6 +14,7 @@ import kotlinx.coroutines.withContext
 class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     val tripList : MutableLiveData<List<Trip>> = MutableLiveData()
+    private val db = Db.getDatabase(application)
 
     fun getAllTrip(){
         viewModelScope.launch(Dispatchers.IO) {
@@ -22,5 +24,9 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
             }
 
         }
+    }
+
+    fun getTripById(id: Int): LiveData<Trip> {
+        return db.tripDao().getTripById(id)
     }
 }

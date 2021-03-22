@@ -19,6 +19,9 @@ interface TripDao {
     @Insert
     fun insert(trip: Trip)
 
+    @Query("SELECT * FROM Trip WHERE id ==:tripId ")
+    fun getTripById(tripId: Int): LiveData<Trip>
+
 
 
 
