@@ -1,17 +1,17 @@
-package com.example.matchtrip.Activity
+package com.example.matchtrip.Fragment
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.matchtrip.Adapter.TripAdapter
 import com.example.matchtrip.R
-import com.example.matchtrip.ViewModel.MainActivityViewModel
+import com.example.matchtrip.ViewModel.MainFragmentViewModel
 import com.example.matchtrip.databinding.ActivityDescriptionBinding
 
 class ActivityDescription: AppCompatActivity() {
 
     private lateinit var binding: ActivityDescriptionBinding
-    private lateinit var viewModel: MainActivityViewModel
+    private lateinit var viewModel: MainFragmentViewModel
     private  var adapter = TripAdapter()
 
     companion object {

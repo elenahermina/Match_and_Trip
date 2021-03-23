@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.matchtrip.Activity.ActivityDescription
+import com.example.matchtrip.Fragment.ActivityDescription
 import com.example.matchtrip.Trip
 import com.example.matchtrip.databinding.TripLayoutBinding
 

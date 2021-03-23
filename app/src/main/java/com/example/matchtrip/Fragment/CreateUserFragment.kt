@@ -1,67 +1,77 @@
-package com.example.matchtrip.Activity
+package com.example.matchtrip.Fragment
 
 import android.os.Bundle
 import android.util.Patterns
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.matchtrip.ViewModel.RegisterUserActivityViewModel
+import com.example.matchtrip.ViewModel.CreateUserFragmentViewModel
 import com.example.matchtrip.User
+import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.databinding.CreateUserLayoutBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class RegisterUserActivity : AppCompatActivity() {
+class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fragment() {
 
-    private lateinit var registerBinding: CreateUserLayoutBinding
+    private lateinit var binding: CreateUserLayoutBinding
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
-    private lateinit var model: RegisterUserActivityViewModel
+    private lateinit var model: CreateUserFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        registerBinding = CreateUserLayoutBinding.inflate(layoutInflater)
-        setContentView(registerBinding.root)
-        model = ViewModelProvider(this).get(RegisterUserActivityViewModel::class.java)
+        model = ViewModelProvider(this).get(CreateUserFragmentViewModel::class.java)
+    }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = CreateUserLayoutBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
         database = Firebase.database.reference
-        registerBinding.signUp.setOnClickListener {
+        binding.signUp.setOnClickListener {
             registerUser()
         }
     }
 
     private fun registerUser() {
-        val userFirstName = registerBinding.EditTextFirstName.text.trim()
-        val userLastName = registerBinding.EditTextLastName.text.trim()
-        val userEmail = registerBinding.TextEmailAddress.text.trim()
-        val userPassword = registerBinding.TextPassword.text.trim()
+        val userFirstName = binding.EditTextFirstName.text.trim()
+        val userLastName = binding.EditTextLastName.text.trim()
+        val userEmail = binding.TextEmailAddress.text.trim()
+        val userPassword = binding.TextPassword.text.trim()
 
         if (userFirstName.isEmpty()) {
-            registerBinding.EditTextFirstName.error = "First name is required"
-            registerBinding.EditTextFirstName.requestFocus()
+            binding.EditTextFirstName.error = "First name is required"
+            binding.EditTextFirstName.requestFocus()
             return }
         if (userLastName.isEmpty()) {
-            registerBinding.EditTextLastName.error = "Last name is required"
-            registerBinding.EditTextLastName.requestFocus()
+            binding.EditTextLastName.error = "Last name is required"
+            binding.EditTextLastName.requestFocus()
             return }
         if (userEmail.isEmpty()) {
-            registerBinding.TextEmailAddress.error = "Email is required"
-            registerBinding.TextEmailAddress.requestFocus()
+            binding.TextEmailAddress.error = "Email is required"
+            binding.TextEmailAddress.requestFocus()
             return }
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-            registerBinding.TextEmailAddress.error = "Please provide valid email!"
-            registerBinding.TextEmailAddress.requestFocus()
+            binding.TextEmailAddress.error = "Please provide valid email!"
+            binding.TextEmailAddress.requestFocus()
             return }
         if (userPassword.isEmpty()) {
-            registerBinding.TextPassword.error = "Password is required"
-            registerBinding.TextPassword.requestFocus()
+            binding.TextPassword.error = "Password is required"
+            binding.TextPassword.requestFocus()
             return }
         if (userPassword.length < 8) {
-            registerBinding.TextPassword.error = "Password need to be 8 or more letters"
-            registerBinding.TextPassword.requestFocus() }
+            binding.TextPassword.error = "Password need to be 8 or more letters"
+            binding.TextPassword.requestFocus() }
 
         mAuth.createUserWithEmailAndPassword(userEmail.toString(), userPassword.toString())
             .addOnCompleteListener { task ->
@@ -75,7 +85,8 @@ class RegisterUserActivity : AppCompatActivity() {
                         userEmail.toString(),
                         userPassword.toString())
                     //redirect to login layout
-                    onBackPressed()
+                    menuActivityInterface.onFragmentBackPress()
+
                 }
             }
     }
@@ -87,7 +98,7 @@ class RegisterUserActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(
-                        this@RegisterUserActivity,
+                        binding.root.context,
                         " USER ADDED !",
                         Toast.LENGTH_SHORT
                     )
@@ -95,7 +106,7 @@ class RegisterUserActivity : AppCompatActivity() {
                 } else {
                     //check exceptions
                     Toast.makeText(
-                        this@RegisterUserActivity,
+                        binding.root.context,
                         " Failed to register user !",
                         Toast.LENGTH_SHORT
                     ).show() }

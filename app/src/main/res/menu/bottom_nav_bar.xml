@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/createTrip"
+        android:id="@+id/navigation_create_trip"
         android:title="New Trip"/>
 
     <item
@@ -10,7 +10,7 @@
         android:title="Chat"/>
 
     <item
-        android:id="@+id/logInActivity"
+        android:id="@+id/navigation_login_activity"
         android:title="User"/>
 
 

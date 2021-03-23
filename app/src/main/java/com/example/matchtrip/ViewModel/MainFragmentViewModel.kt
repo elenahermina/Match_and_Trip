@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
+class MainFragmentViewModel(application: Application) : AndroidViewModel(application) {
     val tripList: MutableLiveData<List<Trip>> = MutableLiveData()
     private val db = Db.getDatabase(application)
 

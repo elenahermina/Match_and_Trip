@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RegisterUserActivityViewModel(application: Application) : AndroidViewModel(application) {
+class LogInFragmentViewModel(application: Application) : AndroidViewModel(application) {
     val userList: MutableLiveData<List<User>> = MutableLiveData()
     private val db = Db.getDatabase(application)
 
