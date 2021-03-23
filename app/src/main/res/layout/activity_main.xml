@@ -73,5 +73,16 @@
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/trip_layout" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="640dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_bar"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

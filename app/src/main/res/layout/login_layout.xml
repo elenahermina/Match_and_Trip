@@ -151,7 +151,7 @@
         android:textColor="#030E69" />
 
     <Button
-        android:id="@+id/join"
+        android:id="@+id/create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -160,7 +160,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="@string/join" />
+        android:text="create" />
 
 
 </LinearLayout>

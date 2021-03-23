@@ -18,6 +18,4 @@ interface DbStatusDao {
 
     @Insert
     fun insert(dbStatus: DbStatus)
-
-
 }

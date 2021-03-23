@@ -7,18 +7,20 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.matchtrip.R
 import com.example.matchtrip.Trip
+import com.example.matchtrip.User
 import com.example.matchtrip.dao.DbStatusDao
 import com.example.matchtrip.dao.TripDao
+import com.example.matchtrip.dao.UserDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Trip::class, DbStatus:: class], version = 1)
+@Database(entities = [Trip::class, DbStatus:: class, User::class], version = 1)
 abstract class Db : RoomDatabase() {
 
     abstract fun tripDao(): TripDao
     abstract fun dbStatusDao(): DbStatusDao
-
+    abstract fun userDao(): UserDao
 
     companion object {
 

@@ -1,17 +1,14 @@
-package com.example.matchtrip.Activity
+package com.example.matchtrip.mainActivity
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.matchtrip.ActivityDescription
 import com.example.matchtrip.ViewModel.MainActivityViewModel
 import com.example.matchtrip.Trip
 import com.example.matchtrip.Adapter.TripAdapter
 import com.example.matchtrip.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,5 +38,3 @@ class MainActivity : AppCompatActivity() {
         adapter.updateData(students)
     }
 }
-
-
