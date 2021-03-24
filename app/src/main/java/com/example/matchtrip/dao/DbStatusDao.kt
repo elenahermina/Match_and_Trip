@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.matchtrip.Db.DbStatus
+import com.example.matchtrip.db.DbStatus
 
 
 @Dao

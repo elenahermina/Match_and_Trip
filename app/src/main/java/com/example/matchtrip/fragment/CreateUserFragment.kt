@@ -1,5 +1,7 @@
-package com.example.matchtrip.Fragment
+package com.example.matchtrip.fragment
 
+
+import android.content.Context
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -8,24 +10,23 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.matchtrip.ViewModel.CreateUserFragmentViewModel
+import androidx.lifecycle.lifecycleScope
+import com.example.matchtrip.viewModel.CreateUserFragmentViewModel
 import com.example.matchtrip.User
 import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.databinding.CreateUserLayoutBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
+
 
 class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fragment() {
 
     private lateinit var binding: CreateUserLayoutBinding
-    private lateinit var mAuth: FirebaseAuth
-    private lateinit var database: DatabaseReference
     private lateinit var model: CreateUserFragmentViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         model = ViewModelProvider(this).get(CreateUserFragmentViewModel::class.java)
     }
 
@@ -36,8 +37,6 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mAuth = FirebaseAuth.getInstance()
-        database = Firebase.database.reference
         binding.signUp.setOnClickListener {
             registerUser()
         }
@@ -71,45 +70,24 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
             return }
         if (userPassword.length < 8) {
             binding.TextPassword.error = "Password need to be 8 or more letters"
-            binding.TextPassword.requestFocus() }
+            binding.TextPassword.requestFocus()
+            return
+        }
 
-        mAuth.createUserWithEmailAndPassword(userEmail.toString(), userPassword.toString())
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    //get user ID
-                    val userId: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
-                    // write to database
-                    writeNewUser(
-                        userId, userFirstName.toString(),
-                        userLastName.toString(),
-                        userEmail.toString(),
-                        userPassword.toString())
-                    //redirect to login layout
-                    menuActivityInterface.onFragmentBackPress()
+         writeNewUser(userFirstName.toString(), userLastName.toString(), userEmail.toString(), userPassword.toString())
 
-                }
-            }
+}
+
+// function for creating new user  and check can we create a new one
+private fun writeNewUser( firstName: String, lastName: String, email: String, password: String) {
+
+    val user = User(firstName, lastName, email, password)
+    lifecycleScope.launch{
+        model.insertUser(user)
+        Toast.makeText( binding.root.context,"User create", Toast.LENGTH_SHORT).show()
+        menuActivityInterface.goHome()
     }
-    // function for creating new user  and check can we create a new one
-    private fun writeNewUser(userId: String, firstName: String, lastName: String, email: String, password: String) {
 
-        val user = User(firstName, lastName, email, password)
-        database.child("Users").child(userId).setValue(user)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(
-                        binding.root.context,
-                        " USER ADDED !",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                } else {
-                    //check exceptions
-                    Toast.makeText(
-                        binding.root.context,
-                        " Failed to register user !",
-                        Toast.LENGTH_SHORT
-                    ).show() }
-            }
-    }
+
+}
 }

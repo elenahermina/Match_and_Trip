@@ -1,12 +1,9 @@
-package com.example.matchtrip.ViewModel
+package com.example.matchtrip.viewModel
 
 import android.app.Application
-import android.location.Location
 import androidx.lifecycle.*
-import com.example.matchtrip.Db.Db
+import com.example.matchtrip.db.Db
 import com.example.matchtrip.Trip
-import com.example.matchtrip.User
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -24,7 +21,9 @@ class MainFragmentViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
-    fun getTripById(id: Int): LiveData<Trip> {
+    fun getTripById(id: Int): Trip {
         return db.tripDao().getTripById(id)
     }
+
+
 }

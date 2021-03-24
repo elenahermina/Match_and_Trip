@@ -7,12 +7,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.matchtrip.Fragment.CreateUserFragment
 import com.example.matchtrip.Fragment.MainFragment
+import com.example.matchtrip.fragment.CreateUserFragment
 import com.example.matchtrip.R
 import com.example.matchtrip.databinding.ActivityMenuBinding
 interface MenuActivityInterface {
    fun onFragmentBackPress()
+   fun goHome()
 }
 class MenuActivity : AppCompatActivity(), MenuActivityInterface {
     private lateinit var binding : ActivityMenuBinding
@@ -62,5 +63,9 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
 
     override fun onFragmentBackPress() {
         onBackPressed()
+    }
+
+    override fun goHome() {
+        changeFragment(MainFragment())
     }
 }

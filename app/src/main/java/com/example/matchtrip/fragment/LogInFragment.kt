@@ -1,4 +1,4 @@
-package com.example.matchtrip.Fragment
+package com.example.matchtrip.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,14 +9,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.matchtrip.ViewModel.LogInFragmentViewModel
+import com.example.matchtrip.viewModel.LogInFragmentViewModel
 import com.example.matchtrip.databinding.LoginLayoutBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.example.matchtrip.db.Db
+
 
 class LogInFragment: Fragment() {
+
     private lateinit var mainBinding: LoginLayoutBinding
-    private lateinit var mAuth: FirebaseAuth
     private lateinit var model: LogInFragmentViewModel
+    private val db = Db
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +27,14 @@ class LogInFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mainBinding = LoginLayoutBinding.inflate(inflater, container, false)
+
         return mainBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // get instance of authentication
-        mAuth = FirebaseAuth.getInstance()
+
         // redirect to registration
         mainBinding.create.setOnClickListener {
             startActivity(Intent(mainBinding.root.context, CreateUserFragment::class.java))
@@ -44,9 +47,7 @@ class LogInFragment: Fragment() {
     override fun onResume() {
         super.onResume()
         //redirect registered and LOGGED user in profile
-        if (FirebaseAuth.getInstance().currentUser != null) {
-            startActivity(Intent(mainBinding.root.context, UserProfileFragment::class.java))
-        }
+        startActivity(Intent(mainBinding.root.context, UserProfileFragment::class.java))
     }
 
     private fun userLogin() {
@@ -74,20 +75,8 @@ class LogInFragment: Fragment() {
             return
         }
         // user auth with email and password can be changed on any other backend query/call
-        mAuth.signInWithEmailAndPassword(userEmail.toString(), userPassword.toString())
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    //redirect to user profile
-                    val user = FirebaseAuth.getInstance().currentUser
-                    if (user?.isEmailVerified == true) {
-                        startActivity(Intent(mainBinding.root.context, UserProfileFragment::class.java))
-                      //  finish()
-                    } else {
-                        user?.sendEmailVerification()
-                        Toast.makeText(mainBinding.root.context, "Email verification sent !", Toast.LENGTH_SHORT).show()
-                    }
 
-                }
-            }
+
+
     }
 }

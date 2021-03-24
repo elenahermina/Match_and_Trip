@@ -1,4 +1,4 @@
-package com.example.matchtrip.Db
+package com.example.matchtrip.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

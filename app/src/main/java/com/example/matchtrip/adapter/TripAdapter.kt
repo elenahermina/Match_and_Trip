@@ -1,11 +1,11 @@
-package com.example.matchtrip.Adapter
+package com.example.matchtrip.adapter
 
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.matchtrip.Fragment.ActivityDescription
+import com.example.matchtrip.activity.TripDescriptionActivity
 import com.example.matchtrip.Trip
 import com.example.matchtrip.databinding.TripLayoutBinding
 
@@ -24,16 +24,16 @@ class TripAdapter : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
         holder.tripBinding.iwPhoto.setImageResource(trip.photoId)
         holder.tripBinding.tvName.text = trip.name
         holder.tripBinding.iwPhoto.setOnClickListener {
-            val intent = Intent(holder.tripBinding.iwPhoto.context, ActivityDescription::class.java)
-            intent.putExtra(ActivityDescription.VALOR1, trip.name)
-            intent.putExtra(ActivityDescription.VALOR2, trip.photoId)
+            val intent = Intent(holder.tripBinding.iwPhoto.context, TripDescriptionActivity::class.java)
+            intent.putExtra(TripDescriptionActivity.ID_TRIP1, trip.id)
+
             holder.tripBinding.iwPhoto.context.startActivity(intent)
         }
     }
     override fun getItemCount(): Int {
         return tripList.size
     }
-    fun updateData(tripList : List<Trip>){
+    fun updateData(tripList: List<Trip>){
         this.tripList = tripList
         notifyDataSetChanged()
     }

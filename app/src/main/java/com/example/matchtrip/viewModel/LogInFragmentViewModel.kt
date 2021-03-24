@@ -1,10 +1,10 @@
-package com.example.matchtrip.ViewModel
+package com.example.matchtrip.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.matchtrip.Db.Db
+import com.example.matchtrip.db.Db
 import com.example.matchtrip.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

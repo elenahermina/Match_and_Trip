@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.matchtrip.ViewModel.MainFragmentViewModel
 import com.example.matchtrip.Trip
-import com.example.matchtrip.Adapter.TripAdapter
+import com.example.matchtrip.adapter.TripAdapter
 import com.example.matchtrip.databinding.FragmentMainBinding
+import com.example.matchtrip.viewModel.MainFragmentViewModel
 
 class MainFragment : Fragment() {
 
@@ -32,10 +32,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         createRecyclerView()
-        model.tripList.observe(viewLifecycleOwner){
-            updateTrip(it)
+        model.tripList.observe(viewLifecycleOwner){trip ->
+            adapter.updateData(trip)
         }
         model.getAllTrip()
+
     }
 
     fun createRecyclerView() {
@@ -43,10 +44,5 @@ class MainFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(binding.root.context)
         binding.recyclerView.adapter = adapter
     }
-
-    private fun updateTrip(students : List<Trip>){
-        adapter.updateData(students)
-    }
-
 
 }
