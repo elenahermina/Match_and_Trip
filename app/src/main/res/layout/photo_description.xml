@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/ivDerecha"
-        android:layout_width="100dp"
+        android:layout_width="240dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
 
     <ImageView
         android:id="@+id/ivIzquierda"
-        android:layout_width="100dp"
+        android:layout_width="240dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
         app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constrainedWidth="true"
@@ -43,24 +43,14 @@
         app:layout_constraintStart_toEndOf="@+id/ivIzquierda"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:text="name"
-            android:textSize="20sp"
-            android:textStyle="bold"></TextView>
 
         <TextView
             android:id="@+id/tvIntro"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Intro"></TextView>
+            android:text="Intro"/>
     </LinearLayout>
 
 

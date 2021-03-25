@@ -1,17 +1,17 @@
 package com.example.matchtrip
 
-
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-
 
 @Entity
 data class Trip( var name : String,
-                 var photoId: Int,
-                 var dates: String?,
-                 var details: String?,
-                 var map: Int?,
-                 var intinerary: String?,
-                 var review: Int?){
+                 var tripPhotoId: Int,
+                 var dates: String? = null,
+                 var details: String? = null,
+                 var map: Int? = null,
+                 var intinerary: String? = null,
+                 var review: Int? = null
+){
     @PrimaryKey(autoGenerate = true)
-    var id : Int = 0 }
+    var tripId : Long = 0 }

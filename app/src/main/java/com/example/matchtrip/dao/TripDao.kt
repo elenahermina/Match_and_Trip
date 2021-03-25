@@ -2,7 +2,9 @@ package com.example.matchtrip.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.matchtrip.Photos
 import com.example.matchtrip.Trip
+import com.example.matchtrip.TripWithPhotos
 
 
 @Dao
@@ -15,8 +17,14 @@ interface TripDao {
     fun getAllLive(): LiveData<List<Trip>>
 
     @Insert
-    fun insert(trip: Trip)
+    fun insert(trip: Trip) : Long
 
-    @Query("SELECT * FROM Trip WHERE id ==:tripId ")
-    fun getTripById(tripId: Int): Trip
+    @Insert
+    fun insert(trip: List<Trip>)
+
+
+   @Query("SELECT * FROM Trip WHERE tripId == :tripId ")
+   fun getTripById(tripId: Long): Trip
+
+
 }

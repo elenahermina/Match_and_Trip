@@ -1,7 +1,7 @@
 package com.example.matchtrip.fragment
 
 
-import android.content.Context
+
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater

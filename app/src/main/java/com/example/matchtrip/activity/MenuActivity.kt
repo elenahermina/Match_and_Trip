@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.matchtrip.Fragment.MainFragment
+import com.example.matchtrip.fragment.MainFragment
 import com.example.matchtrip.fragment.CreateUserFragment
 import com.example.matchtrip.R
 import com.example.matchtrip.databinding.ActivityMenuBinding

@@ -21,13 +21,13 @@ class TripAdapter : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
     override fun onBindViewHolder(holder: TripViewHolder, position: Int) {
         val trip = tripList[position]
 
-        holder.tripBinding.iwPhoto.setImageResource(trip.photoId)
+        holder.tripBinding.iwPhoto.setImageResource(trip.tripPhotoId)
         holder.tripBinding.tvName.text = trip.name
-        holder.tripBinding.iwPhoto.setOnClickListener {
-            val intent = Intent(holder.tripBinding.iwPhoto.context, TripDescriptionActivity::class.java)
-            intent.putExtra(TripDescriptionActivity.ID_TRIP1, trip.id)
+        holder.tripBinding.root.setOnClickListener {
+            val intent = Intent(holder.tripBinding.root.context, TripDescriptionActivity::class.java)
+          intent.putExtra(TripDescriptionActivity.ID_TRIP1, trip.tripId)
 
-            holder.tripBinding.iwPhoto.context.startActivity(intent)
+            holder.tripBinding.root.context.startActivity(intent)
         }
     }
     override fun getItemCount(): Int {
