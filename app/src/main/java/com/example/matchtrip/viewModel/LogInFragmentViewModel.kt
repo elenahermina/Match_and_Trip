@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.matchtrip.db.Db
 import com.example.matchtrip.User
+import com.example.matchtrip.fragment.UserProfileFragment
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -21,5 +23,17 @@ class LogInFragmentViewModel(application: Application) : AndroidViewModel(applic
                 userList.value = result
             }
         }
+    }
+
+    suspend fun verifyUser(email: String) : Boolean  {
+        return viewModelScope.async(Dispatchers.IO) {
+            val allRegisteredUser =  Db.getDatabase(getApplication()).registeredUserDao().getAll()
+            allRegisteredUser.forEach {
+                if (it.email.contentEquals(email))
+                    return@async true
+            }
+            return@async false
+        }.await()
+
     }
 }

@@ -1,5 +1,7 @@
 package com.example.matchtrip.fragment
 
-class UserProfileFragment {
+import androidx.fragment.app.Fragment
+
+class UserProfileFragment: Fragment() {
 
 }

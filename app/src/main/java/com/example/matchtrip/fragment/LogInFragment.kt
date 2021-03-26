@@ -9,12 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.viewModel.LogInFragmentViewModel
 import com.example.matchtrip.databinding.LoginLayoutBinding
 import com.example.matchtrip.db.Db
+import kotlinx.coroutines.launch
 
 
-class LogInFragment: Fragment() {
+class LogInFragment(var menuActivityInterface: MenuActivityInterface): Fragment() {
 
     private lateinit var mainBinding: LoginLayoutBinding
     private lateinit var model: LogInFragmentViewModel
@@ -23,6 +26,7 @@ class LogInFragment: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = ViewModelProvider(this).get(LogInFragmentViewModel::class.java)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -37,18 +41,14 @@ class LogInFragment: Fragment() {
 
         // redirect to registration
         mainBinding.create.setOnClickListener {
-            startActivity(Intent(mainBinding.root.context, CreateUserFragment::class.java))
+            menuActivityInterface.goCreateUser()
         }
         // make login in
         mainBinding.button.setOnClickListener {
             userLogin()
         }
     }
-    override fun onResume() {
-        super.onResume()
-        //redirect registered and LOGGED user in profile
-        startActivity(Intent(mainBinding.root.context, UserProfileFragment::class.java))
-    }
+
 
     private fun userLogin() {
         val userEmail = mainBinding.editTextTextEmailAddress.text.trim()
@@ -74,9 +74,8 @@ class LogInFragment: Fragment() {
             mainBinding.editTextTextPassword.requestFocus()
             return
         }
-        // user auth with email and password can be changed on any other backend query/call
-
-
+        menuActivityInterface.goUserProfile()
 
     }
+
 }

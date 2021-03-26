@@ -11,9 +11,15 @@ import com.example.matchtrip.fragment.MainFragment
 import com.example.matchtrip.fragment.CreateUserFragment
 import com.example.matchtrip.R
 import com.example.matchtrip.databinding.ActivityMenuBinding
+import com.example.matchtrip.fragment.LogInFragment
+import com.example.matchtrip.fragment.UserProfileFragment
+
 interface MenuActivityInterface {
    fun onFragmentBackPress()
    fun goHome()
+   fun goUserProfile()
+   fun goLogInProfile()
+   fun goCreateUser()
 }
 class MenuActivity : AppCompatActivity(), MenuActivityInterface {
     private lateinit var binding : ActivityMenuBinding
@@ -67,5 +73,15 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
 
     override fun goHome() {
         changeFragment(MainFragment())
+    }
+    override fun goUserProfile(){
+        changeFragment(UserProfileFragment())
+    }
+    override fun goLogInProfile(){
+        changeFragment(LogInFragment(this))
+    }
+
+    override fun goCreateUser(){
+        changeFragment(CreateUserFragment(this))
     }
 }

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.matchtrip.viewModel.CreateUserFragmentViewModel
@@ -29,7 +30,6 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
 
         model = ViewModelProvider(this).get(CreateUserFragmentViewModel::class.java)
     }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = CreateUserLayoutBinding.inflate(inflater, container, false)
         return binding.root
@@ -85,7 +85,8 @@ private fun writeNewUser( firstName: String, lastName: String, email: String, pa
     lifecycleScope.launch{
         model.insertUser(user)
         Toast.makeText( binding.root.context,"User create", Toast.LENGTH_SHORT).show()
-        menuActivityInterface.goHome()
+
+       menuActivityInterface.goLogInProfile()
     }
 
 

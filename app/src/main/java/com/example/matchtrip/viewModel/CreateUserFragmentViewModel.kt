@@ -7,11 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.matchtrip.db.Db
 import com.example.matchtrip.User
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CreateUserFragmentViewModel(application: Application) : AndroidViewModel(application) {
-  //  val userList: MutableLiveData<User> = MutableLiveData()
+class CreateUserFragmentViewModel(application: Application) : AndroidViewModel(application)  {
     private val db = Db.getDatabase(application)
 
    suspend fun insertUser(user: User) {
@@ -19,4 +19,5 @@ class CreateUserFragmentViewModel(application: Application) : AndroidViewModel(a
            db.userDao().insert(user)
             }
         }
-    }
+
+}
