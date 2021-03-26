@@ -3,11 +3,12 @@ package com.example.matchtrip
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity
 data class Trip( var name : String,
                  var tripPhotoId: Int,
-                 var dates: String? = null,
+                 var dates: String?,
                  var details: String? = null,
                  var map: Int? = null,
                  var intinerary: String? = null,

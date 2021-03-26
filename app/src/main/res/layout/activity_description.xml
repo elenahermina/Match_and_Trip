@@ -65,17 +65,17 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
 
-        <ImageView
-            android:id="@+id/iwPhotoThai"
-            android:layout_width="364dp"
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/map_thai" />
+            android:layout_marginTop="20dp" />
+
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"

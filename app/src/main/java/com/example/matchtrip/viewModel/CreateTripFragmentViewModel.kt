@@ -1,4 +1,7 @@
 package com.example.matchtrip.viewModel
 
-class CreateTripFragmentViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+
+class CreateTripFragmentViewModel(application: Application) : AndroidViewModel(application) {
 }

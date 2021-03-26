@@ -34,7 +34,22 @@
     <string name="llog_in">Log In</string>
     <string name="tour_operator_contiki_age_18_to_35_operated_in_english_group_size_30">Tour Operator: Contiki Age:18 to 35 Operated in: English Group size: 30</string>
     <string name="start_and_end_in_koh_samui_with_the_beach_tour_thai_island_hopper_east_9_days_you_have_a_9_days_tour_package_taking_you_through_koh_samui_thailand_and_2_other_destinations_in_thailand">Start and end in Koh Samui! With the Beach tour Thai Island Hopper East (9 Days), you have a 9 days tour package taking you through Koh Samui, Thailand and 2 other destinations in Thailand.</string>
-
+    <string name="what_is_your_current_location">What is your current location?</string>
+    <string name="where_are_you_going">Where are you going?</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="ad_photos_to_the_trip">Ad photos to the trip</string>
+    <string name="agregar">agregar</string>
+    <string name="add_a_description_to_the_trip">Add a description to the trip</string>
+    <string name="guardar">Guardar</string>
+    <string name="welcome_back_cesk_where_you_want_to_go">Welcome back Cesk, where you want to go?</string>
+    <string name="hello_cesk">Hello Cesk</string>
+    <string name="trip_type">Trip Type</string>
+    <string name="start_a_trip">Start a trip</string>
+    <string name="welcome_back_where_you_want_to_go">Welcome back where you want to go?</string>
+    <string name="trip_name">Trip Name</string>
+    <string name="add_a_itinerary">Add a itinerary</string>
+    <string name="add_photos_and_a_little_description_for_photos">Add photos and a little description for photos</string>
 
 
 </resources>
