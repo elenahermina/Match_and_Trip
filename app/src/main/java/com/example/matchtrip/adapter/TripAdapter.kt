@@ -21,7 +21,7 @@ class TripAdapter : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
     override fun onBindViewHolder(holder: TripViewHolder, position: Int) {
         val trip = tripList[position]
 
-        holder.tripBinding.iwPhoto.setImageResource(trip.tripPhotoId)
+        trip.tripPhotoId?.let { holder.tripBinding.iwPhoto.setImageResource(it) }
         holder.tripBinding.tvName.text = trip.name
         holder.tripBinding.root.setOnClickListener {
             val intent = Intent(holder.tripBinding.root.context, TripDescriptionActivity::class.java)

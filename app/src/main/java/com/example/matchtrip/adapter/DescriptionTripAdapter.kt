@@ -13,6 +13,8 @@ import com.example.matchtrip.databinding.PhotoDescriptionBinding
 
 
 class DescriptionTripAdapter: RecyclerView.Adapter<DescriptionTripAdapter.DescriptionViewHolder>() {
+
+
    lateinit var binding: PhotoDescriptionBinding
 
     class DescriptionViewHolder(root: View, var tvIntro: TextView, var ivIzquerda: ImageView, var ivDerecha: ImageView): RecyclerView.ViewHolder(root)

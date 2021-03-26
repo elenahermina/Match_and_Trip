@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
     childColumns = arrayOf("fkTripId"),
     onDelete = ForeignKey.SET_NULL)])
 
-data class Photos(val photoName: String, val imageId: Int,var fkTripId: Long? = null){
+data class Photos(val photoName: String, val imageId: Int, var fkTripId: Long? = null){
 
     @PrimaryKey(autoGenerate = true)
     var photosId : Long = 0

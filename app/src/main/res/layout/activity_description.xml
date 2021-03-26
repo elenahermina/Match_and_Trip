@@ -44,7 +44,7 @@
         <TextView
             android:id="@+id/tvDates"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:text="12 Jul 2021 - 21 Jul 2021"
             android:textColor="#030E69"
             android:textSize="20sp"

@@ -44,10 +44,10 @@ class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         model.tripDetail.observe(this){trip ->
-            binding.iwPhoto.setImageResource(trip.tripPhotoId)
+            trip.tripPhotoId?.let { binding.iwPhoto.setImageResource(it) }
             binding.tvTitle.text = trip.name
             binding.tvDetail.text =trip.details
-            binding.tvDates.text = trip.dates
+            binding.tvDates.text = "${trip.datesInicio.toString()} - ${trip.datesFinal.toString()}"
             binding.tvIntinerary.text = trip.intinerary
             trip.review?.let { binding.review.setImageResource(it) }
 

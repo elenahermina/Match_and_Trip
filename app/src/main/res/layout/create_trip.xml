@@ -128,32 +128,33 @@
     </LinearLayout>
 
 
-    <CalendarView
-        android:id="@+id/calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginEnd="25dp" />
+    <EditText
+        android:id="@+id/et_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Selecciona una fecha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/photoTrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="80dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="@string/add_photos_and_a_little_description_for_photos"
-        android:textSize="21sp"
         android:textColor="#030E69"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginEnd="75dp" />
+        android:textSize="21sp" />
 
     <Button
 
         android:id="@+id/addPhotos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/agregar"
+        android:text="@string/add_photos"
         android:textColor="#030E69"
         android:fontFamily="@font/aclonica_regular"
         android:layout_marginTop="20dp"

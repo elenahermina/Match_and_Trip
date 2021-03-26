@@ -7,8 +7,9 @@ import java.util.*
 
 @Entity
 data class Trip( var name : String,
-                 var tripPhotoId: Int,
-                 var dates: String?,
+                 var tripPhotoId: Int?,
+                 var datesInicio: Long?,
+                 var datesFinal: Long?,
                  var details: String? = null,
                  var map: Int? = null,
                  var intinerary: String? = null,

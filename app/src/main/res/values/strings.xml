@@ -50,6 +50,7 @@
     <string name="trip_name">Trip Name</string>
     <string name="add_a_itinerary">Add a itinerary</string>
     <string name="add_photos_and_a_little_description_for_photos">Add photos and a little description for photos</string>
+    <string name="add_photos">Add Photos</string>
 
 
 </resources>
