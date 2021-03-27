@@ -11,7 +11,12 @@
 
     <item
         android:id="@+id/navigation_login_activity"
-        android:title="User"/>
+        android:title="User"
+        android:iconTint="@color/purple_200" />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:title="Home"/>
 
 
 

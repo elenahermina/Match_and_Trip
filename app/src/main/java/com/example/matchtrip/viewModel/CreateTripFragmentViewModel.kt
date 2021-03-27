@@ -3,7 +3,6 @@ package com.example.matchtrip.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.example.matchtrip.Trip
-import com.example.matchtrip.User
 import com.example.matchtrip.db.Db
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

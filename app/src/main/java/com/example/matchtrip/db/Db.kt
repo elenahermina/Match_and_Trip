@@ -1,7 +1,6 @@
 package com.example.matchtrip.db
 
 import android.content.Context
-import android.provider.ContactsContract
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -20,6 +19,7 @@ abstract class Db : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract  fun registeredUserDao(): RegisteredUserDao
     abstract fun photosDao(): PhotosDao
+
 
     companion object {
 

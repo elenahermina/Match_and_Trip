@@ -163,7 +163,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTrip"
+        android:id="@+id/recyclerView"
         android:layout_width="300dp"
         android:layout_height="100dp"
         tools:listitem="@layout/ad_photo"

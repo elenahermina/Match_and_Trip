@@ -1,29 +1,35 @@
 package com.example.matchtrip.adapter
 
-import android.content.Intent
+
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matchtrip.Photos
-import com.example.matchtrip.Trip
-import com.example.matchtrip.activity.TripDescriptionActivity
 import com.example.matchtrip.databinding.AdPhotoBinding
+
+
+
 
 class NewTripAdapter: RecyclerView.Adapter<NewTripAdapter.TripViewHolder>() {
 
+    lateinit var binding: AdPhotoBinding
     private var photosList = listOf<Photos>()
 
-    class TripViewHolder(val adPhotoBinding:  AdPhotoBinding) : RecyclerView.ViewHolder(adPhotoBinding.root)
+    class TripViewHolder(val binding: AdPhotoBinding ) : RecyclerView.ViewHolder(binding.root)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripViewHolder {
-        val adPhotoBinding = AdPhotoBinding.inflate(LayoutInflater.from(parent.context),parent, false)
-        return TripViewHolder(adPhotoBinding)
+         binding = AdPhotoBinding.inflate(LayoutInflater.from(parent.context),parent, false)
+        return TripViewHolder(binding)
     }
     override fun onBindViewHolder(holder: TripViewHolder, position: Int) {
-        val photos = photosList[position]
+     val photos = photosList[position]
 
-        holder.adPhotoBinding.iwPhoto.setImageResource(photos.imageId)
-        holder.adPhotoBinding.tvName.setText(photos.photoName)
+
+      photos.image?.let{holder.binding.iwPhoto.setImageBitmap(BitmapFactory.decodeByteArray(it, 0, it.size))  }
+       photos.photoName?.let{holder.binding.tvName.setText(photos.photoName)}
+
 
     }
     override fun getItemCount(): Int {
@@ -35,3 +41,4 @@ class NewTripAdapter: RecyclerView.Adapter<NewTripAdapter.TripViewHolder>() {
         notifyDataSetChanged()
     }
 }
+

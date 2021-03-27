@@ -4,15 +4,14 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
+
 @Entity(foreignKeys = [ForeignKey(entity = Trip::class,
     parentColumns = arrayOf("tripId"),
     childColumns = arrayOf("fkTripId"),
     onDelete = ForeignKey.SET_NULL)])
 
-data class Photos(val photoName: String, val imageId: Int, var fkTripId: Long? = null){
+data class Photos(val photoName: String, val imageId: Int, var fkTripId: Long? = null, var image: ByteArray? = null ){
 
     @PrimaryKey(autoGenerate = true)
     var photosId : Long = 0
 }
-
-

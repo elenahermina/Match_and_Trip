@@ -4,5 +4,4 @@ import androidx.room.Embedded
 
 data class TripWithPhotos (
     @Embedded var trip: Trip,
-    @Embedded var photos: Photos
-    )
+    @Embedded var photos: Photos)

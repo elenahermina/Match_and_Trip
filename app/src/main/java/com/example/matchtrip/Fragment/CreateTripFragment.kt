@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -19,9 +18,7 @@ import com.example.matchtrip.Trip
 import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.adapter.NewTripAdapter
 import com.example.matchtrip.databinding.CreateTripBinding
-import com.example.matchtrip.databinding.CreateUserLayoutBinding
 import com.example.matchtrip.viewModel.CreateTripFragmentViewModel
-import com.example.matchtrip.viewModel.CreateUserFragmentViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.coroutines.launch
 import java.util.*
@@ -30,7 +27,7 @@ class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Frag
 
     private lateinit var binding: CreateTripBinding
     private lateinit var model: CreateTripFragmentViewModel
-    private lateinit var adapter: NewTripAdapter
+   private  var adapter = NewTripAdapter()
 
     private var fechaInicio = 0L
     private var fechaFin = 0L
@@ -45,6 +42,14 @@ class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Frag
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = CreateTripBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        createRecyclerView()
+        binding.guardar.setOnClickListener {
+            createTrip()
+        }
     }
 
     private fun createTrip(){
@@ -97,17 +102,31 @@ class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Frag
             resultLauncher.launch(Intent())
         }
 
+     /*   binding.guardar.setOnClickListener {
+            lifecycleScope.launch{
+                model.insertTrip(
+                    binding.addDescription.text.toString(),
+                    binding.tripName.text.toString(),
+                    binding.etCalendar.
 
+                )
+            }
+        }*/
+
+    // writeNewUser(userFirstName.toString(), userLastName.toString(), userEmail.toString(), userPassword.toString())
+        writeNewTrip(tripName.toString(),destination.toString(), fechaInicio, fechaFin)
     }
 
-  /*  private fun writeNewTrip(tripName: String, destination: String){
+   private fun writeNewTrip(tripName: String, destination: String, fechaInicio: Long, fechaFin: Long){
+       val trip = Trip(tripName,tripPhotoId = null,fechaInicio,fechaFin, destination)
 
-       val trip = Trip(binding.tripName.text.toString(), fechaInicio, f
+      // val trip = Trip(binding.tripName.text.toString(),tripPhotoId = null ,fechaInicio,fechaFin, binding.destination.text.toString())
 
-
+lifecycleScope.launch {
        model.insertTrip(trip)
-       menuInterface.goHome()
-    }*/
+       menuActivityInterface.goHome()
+}
+    }
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -122,13 +141,13 @@ class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Frag
                     }
                 }
             }
-           // binding.recyclerViewTrip.(bitmap) //  handle chosen image
+
         }
     }
 
     private fun createRecyclerView() {
-        binding.recyclerViewTrip.layoutManager = LinearLayoutManager(binding.root.context)
-        binding.recyclerViewTrip.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(binding.root.context)
+        binding.recyclerView.adapter = adapter
 
     }
 }
