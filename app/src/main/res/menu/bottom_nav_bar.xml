@@ -3,20 +3,19 @@
 
     <item
         android:id="@+id/navigation_create_trip"
-        android:title="New Trip"/>
+        android:title="@string/new_trip"/>
 
     <item
         android:id="@+id/navigation_chat"
-        android:title="Chat"/>
+        android:title="@string/chat"/>
 
     <item
         android:id="@+id/navigation_login_activity"
-        android:title="User"
-        android:iconTint="@color/purple_200" />
+        android:title="@string/user" />
 
     <item
         android:id="@+id/navigation_home"
-        android:title="Home"/>
+        android:title="@string/home"/>
 
 
 

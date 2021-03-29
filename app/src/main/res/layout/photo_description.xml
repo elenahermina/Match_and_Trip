@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/ivDerecha"
-        android:layout_width="240dp"
+        android:layout_width="200dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
 
     <ImageView
         android:id="@+id/ivIzquierda"
-        android:layout_width="240dp"
+        android:layout_width="200dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Intro"/>
+            android:text="@string/intro"/>
     </LinearLayout>
 
 

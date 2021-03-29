@@ -1,13 +1,13 @@
 package com.example.matchtrip.activity
 
 
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.matchtrip.R
-import com.example.matchtrip.Trip
 import com.example.matchtrip.adapter.DescriptionTripAdapter
 import com.example.matchtrip.databinding.ActivityDescriptionBinding
 import com.example.matchtrip.viewModel.TripDescriptionActivityViewModel
@@ -19,6 +19,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
@@ -48,6 +50,7 @@ class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
             binding.tvTitle.text = trip.name
             binding.tvDetail.text =trip.details
             binding.tvDates.text = "${trip.datesInicio.toString()} - ${trip.datesFinal.toString()}"
+
             binding.tvIntinerary.text = trip.intinerary
             trip.review?.let { binding.review.setImageResource(it) }
 
@@ -81,6 +84,9 @@ class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(latLngMadrid).title("Marker en Madrid"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngMadrid))
     }
+
+
+
 }
 
 

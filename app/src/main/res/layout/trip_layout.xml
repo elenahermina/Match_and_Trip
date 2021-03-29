@@ -18,10 +18,10 @@
         android:id="@+id/iwPhoto"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-
         android:clickable="true"
         android:scaleType="centerCrop"
-        tools:srcCompat="@mipmap/europe" />
+        tools:srcCompat="@mipmap/europe"
+        android:focusable="true" />
 
     </androidx.cardview.widget.CardView>
 
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="30dp"
         android:fontFamily="@font/aclonica"
         android:textColor="#030E69"

@@ -15,15 +15,16 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#030E69"
             android:textSize="25sp"
             android:fontFamily="@font/aclonica"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_gravity="center"/>
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -36,22 +37,23 @@
             android:id="@+id/iwPhoto"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/thailanda" />
+
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvDates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12 Jul 2021 - 21 Jul 2021"
+            android:text="@string/_12_jul_2021_21_jul_2021"
             android:textColor="#030E69"
             android:textSize="20sp"
             android:fontFamily="@font/aclonica"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"/>
+
         <TextView
             android:id="@+id/tvDetail"
             android:layout_width="wrap_content"
@@ -80,7 +82,7 @@
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Itinerary"
+            android:text="@string/itinerary"
             android:textColor="#030E69"
             android:textSize="20sp"
             android:layout_gravity="center"
