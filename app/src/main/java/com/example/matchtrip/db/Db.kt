@@ -11,13 +11,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Trip::class, DbStatus:: class, User::class, Photos::class, RegisteredUser::class], version = 1)
+@Database(entities = [Trip::class, DbStatus:: class, User::class, Photos::class], version = 1)
 abstract class Db : RoomDatabase() {
 
     abstract fun tripDao(): TripDao
     abstract fun dbStatusDao(): DbStatusDao
     abstract fun userDao(): UserDao
-    abstract  fun registeredUserDao(): RegisteredUserDao
+
     abstract fun photosDao(): PhotosDao
 
 

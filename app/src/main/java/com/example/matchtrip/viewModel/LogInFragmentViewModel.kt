@@ -27,7 +27,7 @@ class LogInFragmentViewModel(application: Application) : AndroidViewModel(applic
 
     suspend fun verifyUser(email: String) : Boolean  {
         return viewModelScope.async(Dispatchers.IO) {
-            val allRegisteredUser =  Db.getDatabase(getApplication()).registeredUserDao().getAll()
+            val allRegisteredUser =  Db.getDatabase(getApplication()).userDao().getAll()
             allRegisteredUser.forEach {
                 if (it.email.contentEquals(email))
                     return@async true

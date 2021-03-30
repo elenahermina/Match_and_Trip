@@ -75,8 +75,7 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
         }
 
          writeNewUser(userFirstName.toString(), userLastName.toString(), userEmail.toString(), userPassword.toString())
-
-}
+    }
 
 // function for creating new user  and check can we create a new one
 private fun writeNewUser( firstName: String, lastName: String, email: String, password: String) {
@@ -88,7 +87,5 @@ private fun writeNewUser( firstName: String, lastName: String, email: String, pa
 
        menuActivityInterface.goLogInProfile()
     }
-
-
 }
 }

@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,13 +22,14 @@ import com.example.matchtrip.databinding.CreateTripBinding
 import com.example.matchtrip.viewModel.CreateTripFragmentViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Fragment() {
 
     private lateinit var binding: CreateTripBinding
     private lateinit var model: CreateTripFragmentViewModel
-   private  var adapter = NewTripAdapter()
+    private  var adapter = NewTripAdapter()
 
     private var fechaInicio = 0L
     private var fechaFin = 0L
@@ -47,17 +49,20 @@ class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createRecyclerView()
-        binding.guardar.setOnClickListener {
-            createTrip()
-        }
+
+        initListener()
     }
 
-    private fun createTrip(){
-
-        val tripName = binding.tripName.text.trim()
-        val destination = binding.addDescription.text.trim()
+    private fun initListener(){
+        binding.addPhotos.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            resultLauncher.launch(intent)
+        }
 
         binding.etCalendar.setOnFocusChangeListener { view, hasFocus ->
+            Log.w("TEST", "setOnFocusChange")
             if (hasFocus) {
                 val builder = MaterialDatePicker.Builder.dateRangePicker()
                 builder.setSelection(androidx.core.util.Pair(System.currentTimeMillis(), System.currentTimeMillis()))
@@ -83,49 +88,39 @@ class CreateTripFragment(var menuActivityInterface: MenuActivityInterface): Frag
                 }
             }
         }
+        binding.guardar.setOnClickListener {
+            createTrip()
+        }
 
-      if (tripName.isEmpty()) {
-          binding.tripName.error = "Trip name is required"
-          binding.tripName.requestFocus()
-          return
-      }
+    }
+
+    private fun createTrip(){
+
+        Log.w("TEST", "createTrip")
+        val tripName = binding.tripName.text.trim()
+        val destination = binding.addDescription.text.trim()
+
+        if (tripName.isEmpty()) {
+            binding.tripName.error = "Trip name is required"
+            binding.tripName.requestFocus()
+            return
+        }
         if (destination.isEmpty()) {
             binding.destination.error = "Destination is required"
             binding.destination.requestFocus()
             return
         }
 
-        binding.addPhotos.setOnClickListener {
-            val intent = Intent()
-            intent.type = "image/*"
-            intent.action = Intent.ACTION_GET_CONTENT
-            resultLauncher.launch(Intent())
-        }
-
-     /*   binding.guardar.setOnClickListener {
-            lifecycleScope.launch{
-                model.insertTrip(
-                    binding.addDescription.text.toString(),
-                    binding.tripName.text.toString(),
-                    binding.etCalendar.
-
-                )
-            }
-        }*/
-
-    // writeNewUser(userFirstName.toString(), userLastName.toString(), userEmail.toString(), userPassword.toString())
         writeNewTrip(tripName.toString(),destination.toString(), fechaInicio, fechaFin)
     }
 
-   private fun writeNewTrip(tripName: String, destination: String, fechaInicio: Long, fechaFin: Long){
-       val trip = Trip(tripName,tripPhotoId = null,fechaInicio,fechaFin, destination)
+    private fun writeNewTrip(tripName: String, destination: String, fechaInicio: Long, fechaFin: Long){
+        val trip = Trip(tripName,tripPhotoId = null,fechaInicio,fechaFin, destination)
 
-      // val trip = Trip(binding.tripName.text.toString(),tripPhotoId = null ,fechaInicio,fechaFin, binding.destination.text.toString())
-
-lifecycleScope.launch {
-       model.insertTrip(trip)
-       menuActivityInterface.goHome()
-}
+        lifecycleScope.launch {
+            model.insertTrip(trip)
+            menuActivityInterface.goHome()
+        }
     }
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -141,7 +136,6 @@ lifecycleScope.launch {
                     }
                 }
             }
-
         }
     }
 
@@ -149,5 +143,9 @@ lifecycleScope.launch {
         binding.recyclerView.layoutManager = LinearLayoutManager(binding.root.context)
         binding.recyclerView.adapter = adapter
 
+    }
+    private fun formatDate(date: Date) : String{
+        var simpleDateFormat = SimpleDateFormat("dd.mm.yy")
+        return simpleDateFormat.format(date.time)
     }
 }

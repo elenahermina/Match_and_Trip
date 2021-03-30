@@ -59,6 +59,8 @@
     <string name="chat">Chat</string>
     <string name="new_trip">New Trip</string>
     <string name="intro">Intro</string>
+    <string name="save">Save</string>
+    <string name="edit_profile">Edit profile</string>
 
 
 </resources>

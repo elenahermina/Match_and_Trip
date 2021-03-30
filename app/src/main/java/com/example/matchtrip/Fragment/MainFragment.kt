@@ -24,8 +24,6 @@ class MainFragment : Fragment() {
 
         model = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
 
-
-
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentMainBinding.inflate(inflater, container, false)
@@ -44,9 +42,6 @@ class MainFragment : Fragment() {
         super.onResume()
         model.getAllTrip()
     }
-
-
-
 
     fun createRecyclerView() {
 

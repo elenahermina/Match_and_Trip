@@ -19,6 +19,7 @@ interface MenuActivityInterface {
    fun goCreateUser()
    fun goCreateTrip()
    fun goChat()
+   fun goEditUser()
 }
 class MenuActivity : AppCompatActivity(), MenuActivityInterface {
     private lateinit var binding : ActivityMenuBinding
@@ -39,22 +40,22 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
                 R.id.navigation_home -> {
                     Log.d(MenuActivity::class.java.name, "Botón 1")
                     changeFragment(MainFragment())
-                    Toast.makeText(this, "Menu 1", Toast.LENGTH_LONG).show()
+
                 }
                 R.id.navigation_login_activity -> {
                     Log.d(MenuActivity::class.java.name, "Botón 2")
                     changeFragment(CreateUserFragment(this))
-                    Toast.makeText(this, "Menu 2", Toast.LENGTH_LONG).show()
+
                 }
                 R.id.navigation_create_trip -> {
                     Log.d(MenuActivity::class.java.name, "Botón 3")
                     changeFragment(CreateTripFragment(this))
-                    Toast.makeText(this, "Menu 3", Toast.LENGTH_LONG).show()
+
                 }
              R.id.navigation_chat ->{
                     Log.d(MenuActivity::class.java.name, "Boton 4")
-                    changeFragment(ChatFragment(this))
-                    Toast.makeText(this, "Menu 4", Toast.LENGTH_LONG).show()
+                    changeFragment(UserProfileFragment(this))
+
                 }
                 else -> {
                     Log.e(MenuActivity::class.java.name, "Unknown item on navigationView")
@@ -79,7 +80,7 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
         changeFragment(MainFragment())
     }
     override fun goUserProfile(){
-        changeFragment(UserProfileFragment())
+        changeFragment(UserProfileFragment(this))
     }
     override fun goLogInProfile(){
         changeFragment(LogInFragment(this))
@@ -94,5 +95,8 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
     }
     override fun goChat(){
         changeFragment(ChatFragment(this))
+    }
+    override fun goEditUser(){
+        changeFragment(EditUserFragment(this))
     }
 }

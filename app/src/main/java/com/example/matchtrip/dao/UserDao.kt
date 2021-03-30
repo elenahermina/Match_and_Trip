@@ -2,6 +2,9 @@ package com.example.matchtrip.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.matchtrip.TripWithUser
+import com.example.matchtrip.Trip
+import com.example.matchtrip.TripWithPhotos
 import com.example.matchtrip.User
 
 @Dao
@@ -17,4 +20,10 @@ interface UserDao {
 
     @Delete
     fun delete(user: User)
+
+    @Query("SELECT * FROM user WHERE userId= :userId ")
+    fun getUserById(userId: Long): User
+
+    @Query("SELECT * FROM user INNER JOIN trip ON user.fkTripId = trip.tripId")
+    fun getUserByTrip(): List<TripWithUser>
 }

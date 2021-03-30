@@ -48,7 +48,7 @@
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/ProfilePassword"
+        android:id="@+id/profilePassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"

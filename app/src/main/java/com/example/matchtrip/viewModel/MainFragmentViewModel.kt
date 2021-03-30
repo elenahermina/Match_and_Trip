@@ -15,7 +15,6 @@ import kotlin.random.Random
 class MainFragmentViewModel(application: Application) : AndroidViewModel(application) {
 
     val tripPhotosList: MutableLiveData<List<Trip>> = MutableLiveData()
-   // val photoList: MutableLiveData<List<Photos>> = MutableLiveData()
     private val db = Db.getDatabase(application)
 
     fun getAllTrip() {
