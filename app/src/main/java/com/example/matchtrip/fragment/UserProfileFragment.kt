@@ -28,8 +28,7 @@ class UserProfileFragment(var menuActivityInterface: MenuActivityInterface): Fra
         binding = ProfileUserBinding.inflate(layoutInflater)
         model = ViewModelProvider(this).get(UserProfileFragmentViewModel::class.java)
 
-      //var userId =  intent.getLongExtra(ID_User1,0)
-       // model.userDetails(userId)
+
 
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
