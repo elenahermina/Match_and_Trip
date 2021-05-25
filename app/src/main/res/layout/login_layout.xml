@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="@font/aclonica_regular"
         android:text="@string/log_in"
         android:textColor="#030E69"
@@ -75,7 +75,7 @@
         android:inputType="textPassword" />
 
 
-    <TextView
+    <CheckBox
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/aclonica_regular"
-        android:text="@string/your_password_must_be_8_20_characters"
+        android:text="Remember me?"
         android:textColor="#030E69" />
 
     <Button

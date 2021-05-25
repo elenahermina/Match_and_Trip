@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.method.ScrollingMovementMethod
@@ -21,6 +22,7 @@ import com.example.matchtrip.databinding.EditProfilUserBinding
 import com.example.matchtrip.databinding.ProfileUserBinding
 import com.example.matchtrip.viewModel.EditUserFragmentViewModel
 import com.example.matchtrip.viewModel.UserProfileFragmentViewModel
+import java.io.ByteArrayOutputStream
 
 class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragment() {
 
@@ -50,6 +52,7 @@ class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragm
         binding.logInEmail.text.trim()
         binding.profilePassword.text.trim()
         binding.aboutMe.text.trim()
+        binding.profileAge.text.trim()
 
         binding.photoUser.setOnClickListener {
             val intent = Intent()
@@ -60,8 +63,13 @@ class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragm
 
 
         binding.guardad.setOnClickListener {
-        val user = User (binding.logInEmail.text.toString(), binding.profilePassword.text.toString(), binding.profileFirstName.text.toString(), binding.profileLastName.text.toString(),  binding.aboutMe.text.toString())
-
+            val user = User (binding.logInEmail.text.toString(), binding.profilePassword.text.toString(), binding.profileFirstName.text.toString(), binding.profileLastName.text.toString(),  binding.aboutMe.text.toString())
+            val bitmap =( binding.photoUser.drawable as BitmapDrawable).bitmap
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val image = stream.toByteArray()
+            user.image = image
+            model.insertUser(user)
             menuActivityInterface.goUserProfile()
         }
 

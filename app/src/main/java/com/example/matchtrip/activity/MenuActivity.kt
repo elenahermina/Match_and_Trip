@@ -44,7 +44,7 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
                 }
                 R.id.navigation_login_activity -> {
                     Log.d(MenuActivity::class.java.name, "Botón 2")
-                    changeFragment(CreateUserFragment(this))
+                    changeFragment(LogInFragment(this))
 
                 }
                 R.id.navigation_create_trip -> {
@@ -54,7 +54,7 @@ class MenuActivity : AppCompatActivity(), MenuActivityInterface {
                 }
              R.id.navigation_chat ->{
                     Log.d(MenuActivity::class.java.name, "Boton 4")
-                    changeFragment(UserProfileFragment(this))
+                    changeFragment(ChatFragment(this))
 
                 }
                 else -> {

@@ -16,7 +16,7 @@ interface UserDao {
     fun getAllLive(): LiveData<List<User>>
 
     @Insert
-    fun insert(user: User)
+    fun insert(user: User) : Long
 
     @Delete
     fun delete(user: User)
@@ -24,6 +24,6 @@ interface UserDao {
     @Query("SELECT * FROM user WHERE userId= :userId ")
     fun getUserById(userId: Long): User
 
-    @Query("SELECT * FROM user INNER JOIN trip ON user.fkTripId = trip.tripId")
+    @Query("SELECT * FROM user INNER JOIN trip ON user.userId = trip.fkUserId")
     fun getUserByTrip(): List<TripWithUser>
 }

@@ -5,7 +5,11 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity
+@Entity(foreignKeys = [ForeignKey(entity = User::class,
+    parentColumns = arrayOf("userId"),
+    childColumns = arrayOf("fkUserId"),
+    onDelete = ForeignKey.SET_NULL)])
+
 data class Trip( var name : String,
                  var tripPhotoId: Int?,
                  var datesInicio: Long?,
@@ -13,7 +17,8 @@ data class Trip( var name : String,
                  var details: String? = null,
                  var map: Int? = null,
                  var intinerary: String? = null,
-                 var review: Int? = null
+                 var review: Int? = null,
+                 var fkUserId: Long? = null
 ){
     @PrimaryKey(autoGenerate = true)
     var tripId : Long = 0 }

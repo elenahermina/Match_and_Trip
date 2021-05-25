@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.matchtrip.R
 import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.adapter.UserAdapter
-import com.example.matchtrip.databinding.FragmentMainBinding
 import com.example.matchtrip.databinding.ProfileUserBinding
 import com.example.matchtrip.viewModel.UserProfileFragmentViewModel
 
@@ -19,12 +18,19 @@ class UserProfileFragment(var menuActivityInterface: MenuActivityInterface): Fra
     private lateinit var model: UserProfileFragmentViewModel
     private  var adapter = UserAdapter()
 
+    companion object {
+        const val ID_User1 = "VALOR_1"
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ProfileUserBinding.inflate(layoutInflater)
-
         model = ViewModelProvider(this).get(UserProfileFragmentViewModel::class.java)
+
+      //var userId =  intent.getLongExtra(ID_User1,0)
+       // model.userDetails(userId)
+
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ProfileUserBinding.inflate(inflater, container, false)
@@ -39,11 +45,13 @@ class UserProfileFragment(var menuActivityInterface: MenuActivityInterface): Fra
         binding.logInEmail.text.toString()
         binding.profilePassword.text.toString()
         binding.aboutMe.text.toString()
+        binding.profileAge.text.toString()
 
 
         binding.editProfile.setOnClickListener {
             menuActivityInterface.goEditUser()
         }
+
 
         }
 

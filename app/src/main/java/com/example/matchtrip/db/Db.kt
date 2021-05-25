@@ -44,6 +44,19 @@ abstract class Db : RoomDatabase() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     CoroutineScope(Dispatchers.IO).launch {
 
+                        val rob = User(
+                            "rob.ropati@gmail.com",
+                            "12345678",
+                            "Rob",
+                            "Ropati",
+                            "I am from New Zealand, of Samoan decent. I am an independent entrepeneur own and run a branded clothing line business. Started my journey travelling once a year for three years now and never stopped. Looking to add persons to my adventures.",
+                            R.mipmap.user2,
+                            age =36)
+
+                        INSTANCE?.userDao()?.let { userDao ->
+                            rob.userId = userDao.insert(rob)
+                        }
+
                         val tripEurope  = Trip(
                             "European Dream (10 Days)",
                             R.mipmap.europe,
@@ -52,7 +65,8 @@ abstract class Db : RoomDatabase() {
                             "Tour Operator: Trafalgar, Max group size: 50, Age range: 5 to 99, Operated in: English",
                             R.mipmap.map_thai,
                             "Start in Rome and end in London! With the Discovery tour European Dream (10 Days), you have a 10 days tour package taking you through Rome, Italy and 6 other destinations in Europe. European Dream (10 Days) includes accommodation, an expert guide, meals, transport and more.",
-                            R.mipmap.lisa)
+                            R.mipmap.lisa,
+                            rob.userId)
 
                         INSTANCE?.tripDao()?.insert(tripEurope)?.let { tripId ->
                             tripEurope.tripId = tripId
@@ -61,6 +75,18 @@ abstract class Db : RoomDatabase() {
                             INSTANCE?.photosDao()?.insert(Photos("Europe" ,R.mipmap.europe2,tripEurope.tripId))
                             INSTANCE?.photosDao()?.insert(Photos("Europe" ,R.mipmap.europe3,tripEurope.tripId))
                             INSTANCE?.photosDao()?.insert(Photos("Europe" ,R.mipmap.europe4,tripEurope.tripId))
+                        }
+
+                        val yola = User(
+                            "yola.borchardt@gmail.com",
+                            "12345678",
+                            "Yola",
+                            "Borchardt",
+                            "Driving through the United States exploring and adventuring- basically living full time on the road for a bit. If you have the freedom and ability to do this, then let’s talk- I’d love to meet like minded individuals. Sometimes I feel like I’m the only one out here. Also, I’m flexible on starting points, meet ups and such. Am I the only crazy person out here like this? Sometimes, I feel like I am. I guess this is worth a shot! I have no idea how to meet people like myself unless I just jump in my car and start driving and run into someone?! Literally!! Ok, no pun intended.",
+                            R.mipmap.user2, age = 25)
+
+                        INSTANCE?.userDao()?.insert(yola)?.let { userId ->
+                            yola.userId = userId
                         }
 
 
@@ -72,7 +98,8 @@ abstract class Db : RoomDatabase() {
                             "Tour Operator: Contiki, Max group size: 30, Age range 18 to 35, Operated in: English ",
                             R.mipmap.map_thai,
                             "Start and end in Koh Samui! With the Beach tour Thai Island Hopper East (9 Days), you have a 9 days tour package taking you through Koh Samui, Thailand and 2 other destinations in Thailand. Thai Island Hopper East (9 Days) includes accommodation in a hotel as well as an expert guide, meals, transport and more.",
-                            R.mipmap.lisa)
+                            R.mipmap.lisa,
+                            yola.userId)
 
                         INSTANCE?.tripDao()?.insert(tripThailand)?.let { tripId ->
                             tripThailand.tripId =tripId
@@ -83,6 +110,7 @@ abstract class Db : RoomDatabase() {
                             INSTANCE?.photosDao()?.insert(Photos("Thailand", R.mipmap.thai4, tripThailand.tripId))
                         }
 
+
                         var tripAlbania = Trip(
                             "Cycle Tour In Albania - UNESCO 10 Day Tour",
                             R.mipmap.albania,
@@ -91,7 +119,8 @@ abstract class Db : RoomDatabase() {
                             "Tour Operator: Cycle Albania, Max group size: 20, Age range: 16 to 99, Operated in: English",
                             R.mipmap.map_thai,
                             "Start in Tirana and end in Vlore! With the Bicycle tour Cycle Tour In Albania - UNESCO 10 Day Tour, you have a 10 days tour package taking you through Tirana, Albania and 8 other destinations in Albania. Cycle Tour In Albania - UNESCO 10 Day Tour includes accommodation in a hotel as well as an expert guide, meals, transport and more.",
-                            R.mipmap.lisa)
+                            R.mipmap.lisa,
+                            rob.userId)
 
                         INSTANCE?.tripDao()?.insert(tripAlbania)?.let { tripId ->
                             tripAlbania.tripId = tripId
@@ -110,7 +139,8 @@ abstract class Db : RoomDatabase() {
                             "Tour Operator: G Adventure, Max group size: 20, Age range: 18 to 39, Operated in: English",
                             R.mipmap.map_thai,
                             "Start in Auckland and end in Wellington! With the In-depth Cultural tour New Zealand: Best of the North Island, you have a 7 days tour package taking you through Auckland, New Zealand and 4 other destinations in New Zealand. New Zealand: Best of the North Island includes accommodation in a hostel as well as an expert guide, meals, transport and more.",
-                            R.mipmap.lisa)
+                            R.mipmap.lisa,
+                            yola.userId)
 
                         INSTANCE?.tripDao()?.insert(tripNewZealand)?.let { tripId ->
                             tripNewZealand.tripId = tripId
@@ -129,3 +159,5 @@ abstract class Db : RoomDatabase() {
         }
     }
 }
+
+

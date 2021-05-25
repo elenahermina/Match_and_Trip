@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Database
 import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.viewModel.LogInFragmentViewModel
 import com.example.matchtrip.databinding.LoginLayoutBinding
@@ -45,6 +46,11 @@ class LogInFragment(var menuActivityInterface: MenuActivityInterface): Fragment(
         }
         // make login in
         mainBinding.button.setOnClickListener {
+            mainBinding.textView3.isEnabled && mainBinding.textView3.isChecked
+
+            lifecycleScope.launch {
+                model.verifyUser(mainBinding.editTextTextEmailAddress.text.toString())
+            }
             userLogin()
         }
     }

@@ -37,6 +37,11 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.signIn.setOnClickListener {
+            menuActivityInterface.goLogInProfile()
+        }
+
         binding.signUp.setOnClickListener {
             registerUser()
         }
@@ -85,7 +90,7 @@ private fun writeNewUser( firstName: String, lastName: String, email: String, pa
         model.insertUser(user)
         Toast.makeText( binding.root.context,"User create", Toast.LENGTH_SHORT).show()
 
-       menuActivityInterface.goLogInProfile()
+       menuActivityInterface.goUserProfile()
     }
 }
 }
