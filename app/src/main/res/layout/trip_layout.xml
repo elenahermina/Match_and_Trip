@@ -14,14 +14,14 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp">
 
-    <ImageView
-        android:id="@+id/iwPhoto"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:clickable="true"
-        android:scaleType="centerCrop"
-        tools:srcCompat="@mipmap/europe"
-        android:focusable="true" />
+        <ImageView
+            android:id="@+id/iwPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@mipmap/europe" />
 
     </androidx.cardview.widget.CardView>
 
@@ -37,8 +37,6 @@
         android:textColor="#030E69"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-
 
 
 </LinearLayout>

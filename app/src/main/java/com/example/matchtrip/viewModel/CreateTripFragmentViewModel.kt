@@ -11,7 +11,7 @@ class CreateTripFragmentViewModel(application: Application) : AndroidViewModel(a
     private val db = Db.getDatabase(application)
 
     suspend fun insertTrip(trip: Trip) {
-        withContext(Dispatchers.IO){
+        withContext(Dispatchers.IO) {
             db.tripDao().insert(trip)
         }
     }

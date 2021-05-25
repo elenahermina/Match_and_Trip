@@ -10,11 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class EditUserFragmentViewModel (application: Application) : AndroidViewModel(application){
+class EditUserFragmentViewModel(application: Application) : AndroidViewModel(application) {
     private val db = Db.getDatabase(application)
     val userDetail: MutableLiveData<User> = MutableLiveData()
 
-    fun userDetails(userId: Long){
+    fun userDetails(userId: Long) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = Db.getDatabase(getApplication()).userDao().getUserById(userId)
             withContext(Dispatchers.Main) {
@@ -23,7 +23,7 @@ class EditUserFragmentViewModel (application: Application) : AndroidViewModel(ap
         }
     }
 
-    fun insertUser(user: User){
+    fun insertUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             Db.getDatabase(getApplication()).userDao().insert(user)
         }

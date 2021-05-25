@@ -10,11 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserProfileFragmentViewModel(application: Application) : AndroidViewModel(application)  {
+class UserProfileFragmentViewModel(application: Application) : AndroidViewModel(application) {
     private val db = Db.getDatabase(application)
     val userDetail: MutableLiveData<User> = MutableLiveData()
 
-    fun userDetails(userId: Long){
+    fun userDetails(userId: Long) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = Db.getDatabase(getApplication()).userDao().getUserById(userId)
             withContext(Dispatchers.Main) {

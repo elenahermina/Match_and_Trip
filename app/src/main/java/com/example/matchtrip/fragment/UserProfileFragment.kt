@@ -12,11 +12,11 @@ import com.example.matchtrip.adapter.UserAdapter
 import com.example.matchtrip.databinding.ProfileUserBinding
 import com.example.matchtrip.viewModel.UserProfileFragmentViewModel
 
-class UserProfileFragment(var menuActivityInterface: MenuActivityInterface): Fragment() {
+class UserProfileFragment(var menuActivityInterface: MenuActivityInterface) : Fragment() {
 
     private lateinit var binding: ProfileUserBinding
     private lateinit var model: UserProfileFragmentViewModel
-    private  var adapter = UserAdapter()
+    private var adapter = UserAdapter()
 
     companion object {
         const val ID_User1 = "VALOR_1"
@@ -29,9 +29,13 @@ class UserProfileFragment(var menuActivityInterface: MenuActivityInterface): Fra
         model = ViewModelProvider(this).get(UserProfileFragmentViewModel::class.java)
 
 
-
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = ProfileUserBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,6 +56,6 @@ class UserProfileFragment(var menuActivityInterface: MenuActivityInterface): Fra
         }
 
 
-        }
+    }
 
 }

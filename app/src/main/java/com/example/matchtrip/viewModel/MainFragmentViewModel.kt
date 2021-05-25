@@ -3,10 +3,8 @@ package com.example.matchtrip.viewModel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.matchtrip.Photos
-import com.example.matchtrip.db.Db
 import com.example.matchtrip.Trip
-import com.example.matchtrip.TripWithPhotos
+import com.example.matchtrip.db.Db
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -18,20 +16,20 @@ class MainFragmentViewModel(application: Application) : AndroidViewModel(applica
     private val db = Db.getDatabase(application)
 
     fun getAllTrip() {
-           viewModelScope.launch(Dispatchers.IO) {
- changeTripListValueOnUi(Db.getDatabase(getApplication()).tripDao().getAll())
-           Db.getDatabase(getApplication()).photosDao().getAll().forEach {
-                 it.fkTripId = Random.nextLong(8) + 1
-                   Db.getDatabase(getApplication()).tripDao().insert(listOf())
-               }
+        viewModelScope.launch(Dispatchers.IO) {
+            changeTripListValueOnUi(Db.getDatabase(getApplication()).tripDao().getAll())
+            Db.getDatabase(getApplication()).photosDao().getAll().forEach {
+                it.fkTripId = Random.nextLong(8) + 1
+                Db.getDatabase(getApplication()).tripDao().insert(listOf())
+            }
             Db.getDatabase(getApplication()).photosDao().getPhotosByTrip().forEach {
-                   Log.d("DobleClass", it.toString())
-               }
-        val result = Db.getDatabase(getApplication()).tripDao().getAll()
-               withContext(Dispatchers.Main) {
-                   tripPhotosList.value = result
-               }
-           }
+                Log.d("DobleClass", it.toString())
+            }
+            val result = Db.getDatabase(getApplication()).tripDao().getAll()
+            withContext(Dispatchers.Main) {
+                tripPhotosList.value = result
+            }
+        }
 
 
     }
@@ -41,7 +39,7 @@ class MainFragmentViewModel(application: Application) : AndroidViewModel(applica
         tripPhotosList.value = listOf()
     }
 
-   fun getTripById(id: Int): List<Trip> {
+    fun getTripById(id: Int): List<Trip> {
         return db.tripDao().getAll()
     }
 

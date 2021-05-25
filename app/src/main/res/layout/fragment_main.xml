@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.057" />
 
-       <ImageView
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="380dp"
         android:layout_height="180dp"
@@ -36,6 +35,7 @@
         android:layout_width="325dp"
         android:layout_height="35dp"
         android:fontFamily="@font/aclonica"
+        android:gravity="center"
         android:text="@string/discover_the_world_together"
         android:textColor="#030E69"
         android:textSize="20sp"
@@ -44,8 +44,7 @@
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/introduction"
-        app:layout_constraintVertical_bias="0.136"
-        android:gravity="center"/>
+        app:layout_constraintVertical_bias="0.136" />
 
     <SearchView
         android:id="@+id/searchView"
@@ -70,8 +69,6 @@
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/trip_layout" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

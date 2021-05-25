@@ -1,7 +1,6 @@
 package com.example.matchtrip.activity
 
 
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,15 +18,14 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
 import java.util.*
 
 
-class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
+class TripDescriptionActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityDescriptionBinding
     private lateinit var model: TripDescriptionActivityViewModel
-    private  var adapter = DescriptionTripAdapter()
+    private var adapter = DescriptionTripAdapter()
 
     private lateinit var mMap: GoogleMap
 
@@ -45,16 +43,16 @@ class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        model.tripDetail.observe(this){trip ->
+        model.tripDetail.observe(this) { trip ->
             trip.tripPhotoId?.let { binding.iwPhoto.setImageResource(it) }
             binding.tvTitle.text = trip.name
-            binding.tvDetail.text =trip.details
+            binding.tvDetail.text = trip.details
             binding.tvDates.text = "${trip.datesInicio.toString()} - ${trip.datesFinal.toString()}"
 
             binding.tvIntinerary.text = trip.intinerary
             trip.review?.let { binding.review.setImageResource(it) }
 
-            lifecycleScope.launch(Dispatchers.Main){
+            lifecycleScope.launch(Dispatchers.Main) {
                 var listaPhotos = model.cargarPhotos(trip)
                 adapter.setPhotos(listaPhotos)
 
@@ -63,14 +61,14 @@ class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
 
         }
 
-        var idTrip =  intent.getLongExtra(ID_TRIP1,0)
+        var idTrip = intent.getLongExtra(ID_TRIP1, 0)
         model.tripDetails(idTrip)
 
         createRecyclerView()
 
 
-
     }
+
     fun createRecyclerView() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(binding.root.context)
@@ -84,7 +82,6 @@ class TripDescriptionActivity: AppCompatActivity() , OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(latLngMadrid).title("Marker en Madrid"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngMadrid))
     }
-
 
 
 }

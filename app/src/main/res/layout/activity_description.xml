@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:id="@+id/scrollView"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.TripDescriptionActivity">
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#030E69"
-            android:textSize="25sp"
-            android:fontFamily="@font/aclonica"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginStart="20dp" />
+            android:fontFamily="@font/aclonica"
+            android:textColor="#030E69"
+            android:textSize="25sp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -33,12 +32,12 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
-        <ImageView
-            android:id="@+id/iwPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/thailanda" />
+            <ImageView
+                android:id="@+id/iwPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/thailanda" />
 
         </androidx.cardview.widget.CardView>
 
@@ -46,26 +45,26 @@
             android:id="@+id/tvDates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_12_jul_2021_21_jul_2021"
-            android:textColor="#030E69"
-            android:textSize="20sp"
-            android:fontFamily="@font/aclonica"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/_12_jul_2021_21_jul_2021"
+            android:textColor="#030E69"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvDetail"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/aclonica"
             android:text="@string/tour_operator_contiki_age_18_to_35_operated_in_english_group_size_30"
             android:textColor="#030E69"
-            android:textSize="16sp"
-            android:fontFamily="@font/aclonica"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textSize="16sp" />
 
         <fragment
             android:id="@+id/map"
@@ -73,22 +72,22 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/aclonica"
             android:text="@string/itinerary"
             android:textColor="#030E69"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/aclonica"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvIntinerary"
@@ -103,16 +102,15 @@
             android:textSize="14sp" />
 
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
             app:srcCompat="@mipmap/screenshot" />
 
 
@@ -121,13 +119,13 @@
             android:layout_width="364dp"
             android:layout_height="300dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/lisa"/>
+            app:srcCompat="@mipmap/lisa" />
 
 
     </LinearLayout>

@@ -4,9 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.matchtrip.db.Db
 import com.example.matchtrip.User
-import com.example.matchtrip.fragment.UserProfileFragment
+import com.example.matchtrip.db.Db
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -25,9 +24,9 @@ class LogInFragmentViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
-    suspend fun verifyUser(email: String) : Boolean  {
+    suspend fun verifyUser(email: String): Boolean {
         return viewModelScope.async(Dispatchers.IO) {
-            val allRegisteredUser =  Db.getDatabase(getApplication()).userDao().getAll()
+            val allRegisteredUser = Db.getDatabase(getApplication()).userDao().getAll()
             allRegisteredUser.forEach {
                 if (it.email.contentEquals(email))
                     return@async true

@@ -19,17 +19,15 @@ import com.example.matchtrip.User
 import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.adapter.UserAdapter
 import com.example.matchtrip.databinding.EditProfilUserBinding
-import com.example.matchtrip.databinding.ProfileUserBinding
 import com.example.matchtrip.viewModel.EditUserFragmentViewModel
-import com.example.matchtrip.viewModel.UserProfileFragmentViewModel
 import java.io.ByteArrayOutputStream
 
-class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragment() {
+class EditUserFragment(var menuActivityInterface: MenuActivityInterface) : Fragment() {
 
     private lateinit var binding: EditProfilUserBinding
     private lateinit var model: EditUserFragmentViewModel
-    private  var adapter = UserAdapter()
-    private var bitmap : Bitmap? = null
+    private var adapter = UserAdapter()
+    private var bitmap: Bitmap? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +36,12 @@ class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragm
 
         model = ViewModelProvider(this).get(EditUserFragmentViewModel::class.java)
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = EditProfilUserBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,8 +66,14 @@ class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragm
 
 
         binding.guardad.setOnClickListener {
-            val user = User (binding.logInEmail.text.toString(), binding.profilePassword.text.toString(), binding.profileFirstName.text.toString(), binding.profileLastName.text.toString(),  binding.aboutMe.text.toString())
-            val bitmap =( binding.photoUser.drawable as BitmapDrawable).bitmap
+            val user = User(
+                binding.logInEmail.text.toString(),
+                binding.profilePassword.text.toString(),
+                binding.profileFirstName.text.toString(),
+                binding.profileLastName.text.toString(),
+                binding.aboutMe.text.toString()
+            )
+            val bitmap = (binding.photoUser.drawable as BitmapDrawable).bitmap
             val stream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
             val image = stream.toByteArray()
@@ -74,22 +83,28 @@ class EditUserFragment (var menuActivityInterface: MenuActivityInterface): Fragm
         }
 
     }
-    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val uri = result.data?.data
-            uri?.let { uri ->
-                requireActivity().contentResolver.let { contentResolver ->
-                    bitmap = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-                        val source = ImageDecoder.createSource(contentResolver, uri)
-                        ImageDecoder.decodeBitmap(source)
-                    } else {
-                        MediaStore.Images.Media.getBitmap( this.requireActivity().contentResolver, uri)
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val uri = result.data?.data
+                uri?.let { uri ->
+                    requireActivity().contentResolver.let { contentResolver ->
+                        bitmap =
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                                val source = ImageDecoder.createSource(contentResolver, uri)
+                                ImageDecoder.decodeBitmap(source)
+                            } else {
+                                MediaStore.Images.Media.getBitmap(
+                                    this.requireActivity().contentResolver,
+                                    uri
+                                )
+                            }
                     }
                 }
+                binding.photoUser.setImageBitmap(bitmap)
             }
-            binding.photoUser.setImageBitmap(bitmap)
         }
-    }
 
 
 }

@@ -3,8 +3,6 @@ package com.example.matchtrip.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.matchtrip.TripWithUser
-import com.example.matchtrip.Trip
-import com.example.matchtrip.TripWithPhotos
 import com.example.matchtrip.User
 
 @Dao
@@ -16,7 +14,7 @@ interface UserDao {
     fun getAllLive(): LiveData<List<User>>
 
     @Insert
-    fun insert(user: User) : Long
+    fun insert(user: User): Long
 
     @Delete
     fun delete(user: User)

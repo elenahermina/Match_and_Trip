@@ -3,11 +3,11 @@
 
     <item
         android:id="@+id/navigation_create_trip"
-        android:title="@string/new_trip"/>
+        android:title="@string/new_trip" />
 
     <item
         android:id="@+id/navigation_chat"
-        android:title="@string/chat"/>
+        android:title="@string/chat" />
 
     <item
         android:id="@+id/navigation_login_activity"
@@ -15,8 +15,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:title="@string/home"/>
-
+        android:title="@string/home" />
 
 
 </menu>

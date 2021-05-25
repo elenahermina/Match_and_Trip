@@ -1,7 +1,6 @@
 package com.example.matchtrip.fragment
 
 
-
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -9,17 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.matchtrip.viewModel.CreateUserFragmentViewModel
 import com.example.matchtrip.User
 import com.example.matchtrip.activity.MenuActivityInterface
 import com.example.matchtrip.databinding.CreateUserLayoutBinding
+import com.example.matchtrip.viewModel.CreateUserFragmentViewModel
 import kotlinx.coroutines.launch
 
 
-class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fragment() {
+class CreateUserFragment(var menuActivityInterface: MenuActivityInterface) : Fragment() {
 
     private lateinit var binding: CreateUserLayoutBinding
     private lateinit var model: CreateUserFragmentViewModel
@@ -30,7 +28,12 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
 
         model = ViewModelProvider(this).get(CreateUserFragmentViewModel::class.java)
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = CreateUserLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -56,41 +59,51 @@ class CreateUserFragment (var menuActivityInterface: MenuActivityInterface): Fra
         if (userFirstName.isEmpty()) {
             binding.EditTextFirstName.error = "First name is required"
             binding.EditTextFirstName.requestFocus()
-            return }
+            return
+        }
         if (userLastName.isEmpty()) {
             binding.EditTextLastName.error = "Last name is required"
             binding.EditTextLastName.requestFocus()
-            return }
+            return
+        }
         if (userEmail.isEmpty()) {
             binding.TextEmailAddress.error = "Email is required"
             binding.TextEmailAddress.requestFocus()
-            return }
+            return
+        }
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
             binding.TextEmailAddress.error = "Please provide valid email!"
             binding.TextEmailAddress.requestFocus()
-            return }
+            return
+        }
         if (userPassword.isEmpty()) {
             binding.TextPassword.error = "Password is required"
             binding.TextPassword.requestFocus()
-            return }
+            return
+        }
         if (userPassword.length < 8) {
             binding.TextPassword.error = "Password need to be 8 or more letters"
             binding.TextPassword.requestFocus()
             return
         }
 
-         writeNewUser(userFirstName.toString(), userLastName.toString(), userEmail.toString(), userPassword.toString())
+        writeNewUser(
+            userFirstName.toString(),
+            userLastName.toString(),
+            userEmail.toString(),
+            userPassword.toString()
+        )
     }
 
-// function for creating new user  and check can we create a new one
-private fun writeNewUser( firstName: String, lastName: String, email: String, password: String) {
+    // function for creating new user  and check can we create a new one
+    private fun writeNewUser(firstName: String, lastName: String, email: String, password: String) {
 
-    val user = User(firstName, lastName, email, password)
-    lifecycleScope.launch{
-        model.insertUser(user)
-        Toast.makeText( binding.root.context,"User create", Toast.LENGTH_SHORT).show()
+        val user = User(firstName, lastName, email, password)
+        lifecycleScope.launch {
+            model.insertUser(user)
+            Toast.makeText(binding.root.context, "User create", Toast.LENGTH_SHORT).show()
 
-       menuActivityInterface.goUserProfile()
+            menuActivityInterface.goUserProfile()
+        }
     }
-}
 }

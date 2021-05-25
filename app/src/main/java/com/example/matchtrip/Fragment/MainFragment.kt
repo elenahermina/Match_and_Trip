@@ -15,9 +15,9 @@ import com.example.matchtrip.viewModel.MainFragmentViewModel
 
 class MainFragment : Fragment() {
 
-    private lateinit var binding : FragmentMainBinding
+    private lateinit var binding: FragmentMainBinding
     private var adapter = TripAdapter()
-    private lateinit var model : MainFragmentViewModel
+    private lateinit var model: MainFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,12 @@ class MainFragment : Fragment() {
         model = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
 
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,7 +38,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         createRecyclerView()
 
-        model.tripPhotosList.observe(viewLifecycleOwner){
+        model.tripPhotosList.observe(viewLifecycleOwner) {
             updateTrip(it)
         }
     }
@@ -49,7 +54,7 @@ class MainFragment : Fragment() {
         binding.recyclerView.adapter = adapter
     }
 
-    private fun updateTrip(list:List<Trip>) {
+    private fun updateTrip(list: List<Trip>) {
         adapter.updateData(list)
     }
 

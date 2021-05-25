@@ -2,6 +2,7 @@ package com.example.matchtrip
 
 import androidx.room.Embedded
 
-data class TripWithPhotos (
+data class TripWithPhotos(
     @Embedded var trip: Trip,
-    @Embedded var photos: Photos)
+    @Embedded var photos: Photos
+)
